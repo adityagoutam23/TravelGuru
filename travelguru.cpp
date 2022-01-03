@@ -14,11 +14,11 @@ class Travel
 	 float passenger_code;
 	 char passenger_name[40];
 	 int vehicle;
-	 char destin[40];
-	 int Tprice,price,disc;
+	 char destination[40];
+	 int Total_price,price,discount_travel;
 	 float distance;
 	public:
-	 int passecode()
+	 int passenger_code_trip_search()
 	 {
  		return passenger_code;
  	 }
@@ -26,12 +26,12 @@ class Travel
 	 {
  		passenger_code=101;
  		strcpy(passenger_name,"Aditya");
- 		Tprice=0;
+ 		Total_price=0;
  		price=0;
- 		disc=0;
+ 		discount_travel=0;
  		distance=0;
  	 }
- 	void calprice(int ,float)
+ 	void calcluate_price(int ,float)
 	 {
  	    if(vehicle==1)
 		 {
@@ -90,18 +90,18 @@ class Travel
 	void discount(float)
 	{
 		if(price<=2000)
-		 Tprice=price-0.05*price;
+		 Total_price=price-0.05*price;
 		
 		else if((price>2000)&&(price<=6000))
-		 Tprice=price-0.1*price;
+		 Total_price=price-0.1*price;
 		
 		else if((price>6000)&&(price<=10000))
-		 Tprice=price-0.15*price;
+		 Total_price=price-0.15*price;
 		 
 		else if((price>10000)&&(price<=15000))
-		 Tprice=price-0.2*price;    	
+		 Total_price=price-0.2*price;    	
  	 } 
- 	void Input()
+ 	void Input_trip()
 	 {
  		cout<<"Enter the Passenger Code: ";
  		cin>>passenger_code;
@@ -112,12 +112,12 @@ class Travel
 	    cout<<"Enter the number provided with the vehicle type: ";
 	    cin>>vehicle;
 	    cout<<"Enter your Destination: ";
-	    cin>>destin;
+	    cin>>destination;
 	    cout<<"Enter total distance to be travelled: ";
 	    cin>>distance;
-	    calprice(vehicle,distance);
+	    calcluate_price(vehicle,distance);
  	 }
-	void Display()
+	void Display_trip()
 	{
 		cout<<"Your Passenger code: "<<passenger_code<<endl;
 		cout<<"Passenger name: "<<passenger_name<<endl;
@@ -129,9 +129,9 @@ class Travel
 		 cout<<"Vehicle type: Train"<<endl;
 		else if (vehicle==4)
 		 cout<<"Vehicle type: Plane"<<endl;
-	 	cout<<"Your Destination: "<<destin<<endl;
+	 	cout<<"Your Destination: "<<destination<<endl;
 		cout<<"Price: "<<price<<endl;  
-		cout<<"Total Amount to be paid  after discount: "<<Tprice<<endl;		 
+		cout<<"Total Amount to be paid  after discount: "<<Total_price<<endl;		 
 	}   
 };
 class Passenger :public Travel
@@ -210,390 +210,390 @@ class Passenger_info: public Passenger
 };
 class Hotel
 {
-	int pascodee,htltype,fmlm,tpriceee,conti,tpriceeec;
-	long int priceee, priceeec;
-	char pasnamee[20], country, city[20];
-	char ans7;
+	int passenger_code_hotel,family_members,total_price,continent,currency_price;
+	long int hotel_price, hotel_final_price;
+	char passenger_name_hotel[20], country, city[20];
+	char answer5;
 public:
-    int ppascodee()
+    int passenger_code_hotel_search()
 	{
-		return pascodee;
+		return passenger_code_hotel;
 	} 
-    void docalc(char,int)
+    void do_calculation(char,int)
     {
        if(country=='A')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.098;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.098;}
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.098;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.098;}
 	   }
 	   else if(country=='B')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.11;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.11;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.11;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.11;} 
 	   }
 	   else if(country=='C')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*1;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*1;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*1;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*1;} 
 	   }
 	   else if(country=='D')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*1.52;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*1.52;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*1.52;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*1.52;} 
 	   }
 	   else if(country=='E')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*1.60;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*1.60;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*1.60;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*1.60;} 
 	   }
 	   else if(country=='F')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.058;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.058;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.058;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.058;} 
 	   }
 	   else if(country=='G')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.051;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.051;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.051;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.051;} 
 	   }
 	   else if(country=='H')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.89;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.89;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.89;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.89;} 
 	   }
 	   else if(country=='I')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.052;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.052;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.052;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.052;} 
 	   }
 	   else if(country=='J')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.019;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.019;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.019;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.019;} 
 	   }
 	   else if(country=='K')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.051;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.051;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.051;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.051;} 
 	   }
 	   else if(country=='L')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='M')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='N')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='O')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='P')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='Q')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='R')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.013;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.013;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.013;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.013;} 
 	   }
 	   else if(country=='S')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.014;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.014;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.014;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.014;} 
 	   }
 	   else if(country=='T')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.018;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.018;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.018;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.018;} 
 	   }
 	   else if(country=='U')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*1.96;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*1.96;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*1.96;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*1.96;} 
 	   }
 	   else if(country=='V')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.27;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.27;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.27;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.27;} 
 	   }
 	   else if(country=='W')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.014;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.014;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.014;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.014;} 
 	   }
 	   else if(country=='X')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.014;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.014;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.014;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.014;} 
 	   }
 	   else if(country=='Y')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.83;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.83;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.83;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.83;} 
 	   }
 	   else if(country=='Z')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.058;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.058;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.058;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.058;} 
 	   }
 	   else if(country=='a')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*10.54;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*10.54;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*10.54;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*10.54;} 
 	   }
 	   else if(country=='b')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*46.63;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*46.63;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*46.63;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*46.63;} 
 	   }
 	   else if(country=='c')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.52;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.52;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.52;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.52;} 
 	   }
 	   else if(country=='d')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.23;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.23;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.23;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.23;} 
 	   }
 	   else if(country=='e')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.077;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.077;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.077;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.077;} 
 	   }
 	   else if(country=='f')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*1.43;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*1.43;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*1.43;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*1.43;} 
 	   }
 	   else if(country=='g')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*5.06;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*5.06;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*5.06;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*5.06;} 
 	   }
 	      else if(country=='h')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.21;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.21;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.21;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.21;} 
 	   }
 	      else if(country=='i')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.19;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.19;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.19;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.19;} 
 	   }
 	   else if(country=='j')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.020;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.020;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.020;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.020;} 
 	   }
 	   else if(country=='k')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.020;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.020;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.020;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.020;} 
 	   }
 	   else if(country=='l')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.020;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.020;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.020;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.020;} 
 	   }
 	   else if(country=='m')
 	   { 	
- 	    	if((fmlm>=1)&&(fmlm<=4))
- 	    	{priceee=25000;
- 	    	priceeec=25000*0.020;}
- 	    	else if(fmlm>=5)
- 	    	{priceee=50000;
- 	    	priceeec=50000*0.020;} 
+ 	    	if((family_members>=1)&&(family_members<=4))
+ 	    	{hotel_price=25000;
+ 	    	hotel_final_price=25000*0.020;}
+ 	    	else if(family_members>=5)
+ 	    	{hotel_price=50000;
+ 	    	hotel_final_price=50000*0.020;} 
 	   }
 	   else
 	    cout<<"ERROR..........."<<endl;
-		dodisc(priceee,priceeec);    
+		do_discount(hotel_price,hotel_final_price);    
     }
-    void dodisc(float,float)
+    void do_discount(float,float)
     {
-    	if(priceee<=25000)
-    	{tpriceee=priceee-0.10*priceee;
-    	tpriceeec=priceeec-0.10*priceeec;}
-    	else if(priceee>25000)
-    	{tpriceee=priceee-0.15*priceee;
-    	tpriceeec=priceeec-0.15*priceeec;}
+    	if(hotel_price<=25000)
+    	{total_price=hotel_price-0.10*hotel_price;
+    	total_price=hotel_final_price-0.10*hotel_final_price;}
+    	else if(hotel_price>25000)
+    	{total_price=hotel_price-0.15*hotel_price;
+    	total_price=hotel_final_price-0.15*hotel_final_price;}
     }
-	void inputt()
+	void input_hotel()
 	{
 		cout<<"Enter the Passenger Code=";
- 		cin>>pascodee;
+ 		cin>>passenger_code_hotel;
  		cout<<"Enter the Passenger's name=";
- 		cin>>pasnamee;
+ 		cin>>passenger_name_hotel;
  		cout<<"Have you seen the trip planner??"<<endl<<"select y for yes=";
- 		cin>>ans7;
- 		if(ans7=='y')
+ 		cin>>answer5;
+ 		if(answer5=='y')
  		{
  		   cout<<"You can choose your Place for stay"<<endl;
  		   cout<<"1. Asia"<<endl;
@@ -604,8 +604,8 @@ public:
  		   cout<<"6. Australia"<<endl;
  		   cout<<"7. Antarctica"<<endl;
  		   cout<<"Enter the No. corresponding to the Continent in which you have to live = ";
- 		   cin>>conti;
- 		   if (conti==1)
+ 		   cin>>continent;
+ 		   if (continent==1)
  		   {
    		 	   cout<<"You can select from the following Countries"<<endl;
    		 	   cout<<"A. China"<<endl;
@@ -620,7 +620,7 @@ public:
    		 	   cout<<"J. Singapore"<<endl;
    		 	   cout<<"K. UAE"<<endl;
  		   }
-   		   else if(conti==2)
+   		   else if(continent==2)
 			   {
    		 	      cout<<"L. Germany"<<endl;
    		 	      cout<<"M. United Kingdom"<<endl;
@@ -630,7 +630,7 @@ public:
    		 	      cout<<"Q. Poland"<<endl;
    		 	      cout<<"R. Denmark"<<endl;
    		       }
-           else if(conti==3)
+           else if(continent==3)
 		   {
    		 	   cout<<"You can select from the following Countries"<<endl;
    		 	   cout<<"S. Bermuda"<<endl;
@@ -640,7 +640,7 @@ public:
    		 	   cout<<"W. Panama"<<endl;
    		 	   cout<<"X. USA"<<endl;
  		   }
-			else if(conti==4)
+			else if(continent==4)
 		   {
    		 	   cout<<"You can select from the following Countries"<<endl;
    		 	   cout<<"Y. Argentina"<<endl;
@@ -649,7 +649,7 @@ public:
    		 	   cout<<"b. Colombia"<<endl;
    		 	   cout<<"c. Uruguay"<<endl;
  		   }   
- 		   else if(conti==5)
+ 		   else if(continent==5)
 		   {
    		 	   cout<<"You can select from the following Countries"<<endl;
    		 	   cout<<"d. Egypt"<<endl;
@@ -659,7 +659,7 @@ public:
    		 	   cout<<"h. South Africa"<<endl;
    		 	   cout<<"i. Zambia"<<endl;
  		   }
- 		   else if(conti==6)
+ 		   else if(continent==6)
 		   {
    		 	   cout<<"You can select from the following Countries"<<endl;
    		 	   cout<<"j. Sydney"<<endl;
@@ -667,7 +667,7 @@ public:
    		 	   cout<<"l. Adelaide"<<endl;
    		 	   cout<<"m. Perth"<<endl;
  		   }
- 		   else if(conti==7)
+ 		   else if(continent==7)
  		   {
    		       cout<<"We dont provide Services in Antartica"<<endl;	
    		   }
@@ -676,173 +676,173 @@ public:
    		   cout<<"Enter the City you want to stay in = ";
    		   cin>>city;
  		   cout<<"Please enter how many family members do you have ";
- 		   cin>>fmlm;
-	       docalc(country,fmlm);
+ 		   cin>>family_members;
+	       do_calculation(country,family_members);
  		}
  		else
  		cout<<"First please see the Trip Planner";
 	}
-	void displayy()
+	void display_hotel()
 	{
-		cout<<"Your Passenger code is="<<pascodee<<endl;
-		cout<<"Passanger Name is ="<<pasnamee<<endl;
+		cout<<"Your Passenger code is="<<passenger_code_hotel<<endl;
+		cout<<"Passanger Name is ="<<passenger_name_hotel<<endl;
 		cout<<"your Hotel City is ="<<city<<endl;
 		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
-		cout<<"Price for the Room is="<<priceee<<"Rupees"<<endl<<"OR"<<endl;
+		cout<<"Price for the Room is="<<hotel_price<<"Rupees"<<endl<<"OR"<<endl;
 		if(country=='A')
-		cout<<"Price for the Room is="<<priceeec<<" Chinese Yuan"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Chinese Yuan"<<endl;
 		else if(country=='B')
-		cout<<"Price for the Room is="<<priceeec<<" Hong Kong Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Hong Kong Dollar"<<endl;
 		else if(country=='D')
-		cout<<"Price for the Room is="<<priceeec<<" Japanese Yen"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Japanese Yen"<<endl;
 		else if(country=='E')
-		cout<<"Price for the Room is="<<priceeec<<" Nepalese Rupees"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Nepalese Rupees"<<endl;
 		else if(country=='F')
-		cout<<"Price for the Room is="<<priceeec<<" Malaysian Ringgit"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Malaysian Ringgit"<<endl;
 		else if(country=='G')
-		cout<<"Price for the Room is="<<priceeec<<" Qatari Rial"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Qatari Rial"<<endl;
 		else if(country=='H')
-		cout<<"Price for the Room is="<<priceeec<<" Russian Ruble"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Russian Ruble"<<endl;
 		else if(country=='I')
-		cout<<"Price for the Room is="<<priceeec<<" Saudi Riyal"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Saudi Riyal"<<endl;
 		else if(country=='J')
-		cout<<"Price for the Room is="<<priceeec<<" Singapore Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Singapore Dollar"<<endl;
 		else if(country=='K')
-		cout<<"Price for the Room is="<<priceeec<<" United Arab Emirates Dirham"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" United Arab Emirates Dirham"<<endl;
 		else if(country=='L')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='M')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='N')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='O')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='P')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='Q')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='R')
-		cout<<"Price for the Room is="<<priceeec<<" Euro"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Euro"<<endl;
 		else if(country=='S')
-		cout<<"Price for the Room is="<<priceeec<<" Bermudan Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Bermudan Dollar"<<endl;
 		else if(country=='T')
-		cout<<"Price for the Room is="<<priceeec<<" Canadian Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Canadian Dollar"<<endl;
 		else if(country=='U')
-		cout<<"Price for the Room is="<<priceeec<<" Jamaican Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Jamaican Dollar"<<endl;
 		else if(country=='V')
-		cout<<"Price for the Room is="<<priceeec<<" Mexican Peso"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Mexican Peso"<<endl;
 		else if(country=='W')
-		cout<<"Price for the Room is="<<priceeec<<" Panamanian Balboa"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Panamanian Balboa"<<endl;
 		else if(country=='X')
-		cout<<"Price for the Room is="<<priceeec<<" United States Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" United States Dollar"<<endl;
 		else if(country=='Y')
-		cout<<"Price for the Room is="<<priceeec<<" Argentine Peso"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Argentine Peso"<<endl;
 		else if(country=='Z')
-		cout<<"Price for the Room is="<<priceeec<<" Brazilian Real"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Brazilian Real"<<endl;
 		else if(country=='a')
-		cout<<"Price for the Room is="<<priceeec<<" Chilean Peso"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Chilean Peso"<<endl;
 		else if(country=='b')
-		cout<<"Price for the Room is="<<priceeec<<" Colombian Peso"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Colombian Peso"<<endl;
 		else if(country=='c')
-		cout<<"Price for the Room is="<<priceeec<<" Uruguayan Peso"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Uruguayan Peso"<<endl;
 		else if(country=='d')
-		cout<<"Price for the Room is="<<priceeec<<" Egyptian Pound"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Egyptian Pound"<<endl;
 		else if(country=='e')
-		cout<<"Price for the Room is="<<priceeec<<" Ghanaian Cedi"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Ghanaian Cedi"<<endl;
 		else if(country=='f')
-		cout<<"Price for the Room is="<<priceeec<<" Kenyan Shilling"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Kenyan Shilling"<<endl;
 		else if(country=='g')
-		cout<<"Price for the Room is="<<priceeec<<" Nigerian Naira"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Nigerian Naira"<<endl;
 		else if(country=='h')
-		cout<<"Price for the Room is="<<priceeec<<" South African Rand"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" South African Rand"<<endl;
 		else if(country=='i')
-		cout<<"Price for the Room is="<<priceeec<<" Zambian Kwacha"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Zambian Kwacha"<<endl;
 		else if(country=='j')
-		cout<<"Price for the Room is="<<priceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Australian Dollar"<<endl;
 		else if(country=='k')
-		cout<<"Price for the Room is="<<priceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Australian Dollar"<<endl;
 		else if(country=='l')
-		cout<<"Price for the Room is="<<priceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Australian Dollar"<<endl;
 		else if(country=='m')
-		cout<<"Price for the Room is="<<priceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room is="<<hotel_final_price<<" Australian Dollar"<<endl;
 		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
-        cout<<"Total Price for the Room after Discount is ="<<tpriceee<<" Rupees"<<endl<<"OR"<<endl;
+        cout<<"Total Price for the Room after Discount is ="<<total_price<<" Rupees"<<endl<<"OR"<<endl;
         if(country=='A')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Chinese Yuan"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Chinese Yuan"<<endl;
 		else if(country=='B')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Hong Kong Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Hong Kong Dollar"<<endl;
 		else if(country=='D')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Japanese Yen"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Japanese Yen"<<endl;
 		else if(country=='E')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Nepalese Rupees"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Nepalese Rupees"<<endl;
 		else if(country=='F')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Malaysian Ringgit"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Malaysian Ringgit"<<endl;
 		else if(country=='G')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Qatari Rial"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Qatari Rial"<<endl;
 		else if(country=='H')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Russian Ruble"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Russian Ruble"<<endl;
 		else if(country=='I')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Saudi Riyal"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Saudi Riyal"<<endl;
 		else if(country=='J')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Singapore Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Singapore Dollar"<<endl;
 		else if(country=='K')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" United Arab Emirates Dirham"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" United Arab Emirates Dirham"<<endl;
 		else if(country=='L')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='M')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='N')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='O')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='P')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='Q')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='R')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Euro"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Euro"<<endl;
 		else if(country=='S')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Bermudan Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Bermudan Dollar"<<endl;
 		else if(country=='T')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Canadian Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Canadian Dollar"<<endl;
 		else if(country=='U')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Jamaican Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Jamaican Dollar"<<endl;
 		else if(country=='V')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Mexican Peso"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Mexican Peso"<<endl;
 		else if(country=='W')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Panamanian Balboa"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Panamanian Balboa"<<endl;
 		else if(country=='X')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" United States Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" United States Dollar"<<endl;
 		else if(country=='Y')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Argentine Peso"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Argentine Peso"<<endl;
 		else if(country=='Z')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Brazilian Real"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Brazilian Real"<<endl;
 		else if(country=='a')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Chilean Peso"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Chilean Peso"<<endl;
 		else if(country=='b')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Colombian Peso"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Colombian Peso"<<endl;
 		else if(country=='c')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Uruguayan Peso"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Uruguayan Peso"<<endl;
 		else if(country=='d')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Egyptian Pound"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Egyptian Pound"<<endl;
 		else if(country=='e')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Ghanaian Cedi"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Ghanaian Cedi"<<endl;
 		else if(country=='f')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Kenyan Shilling"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Kenyan Shilling"<<endl;
 		else if(country=='g')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Nigerian Naira"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Nigerian Naira"<<endl;
 		else if(country=='h')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" South African Rand"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" South African Rand"<<endl;
 		else if(country=='i')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Zambian Kwacha"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Zambian Kwacha"<<endl;
 		else if(country=='j')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Australian Dollar"<<endl;
 		else if(country=='k')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Australian Dollar"<<endl;
 		else if(country=='l')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Australian Dollar"<<endl;
 		else if(country=='m')
-		cout<<"Price for the Room after Discount is="<<tpriceeec<<" Australian Dollar"<<endl;
+		cout<<"Price for the Room after Discount is="<<currency_price<<" Australian Dollar"<<endl;
 		else 
 		cout<<"ERROR..........................."<<endl;
 		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
@@ -866,46 +866,48 @@ int main()
 		fstream f;
 		cout<<"select your choice: ";
 		cin>>choice1;	
-    switch(choice1)
-	{      
-	case 1: {           	
-				  f.open("Travel.txt",ios::out);
-				    PI.Details_input(); 
+    	switch(choice1)
+		{      
+		case 1: {           	
+					f.open("Travel.txt",ios::out);
+					PI.Details_input(); 
 					P.Getinfo();
 					f.write((char*)&P,sizeof(P));
-				  }break;
-	case 2: { 		              
-	                char username[40],password[16];
+		}
+		break;
+
+		case 2: { 		              
+	            	char username[40],password[16];
 					cout<<"Enter your username: ";
 					cin>>username;	
-	                f.open("Travel.txt",ios::in);
+	            	f.open("Travel.txt",ios::in);
 					while(f.read((char*)&P,sizeof(P)))
 					{
-					 if(strcmp(P.username_conf(),username)==0)
-					   {
-   						 cout<<"Enter your password: ";
-   						 cin>>password;
-   						   if(strcmp(P.password_conf(),password)==0)
-   						    {
-   						    	system("clear");
-   						    	//system("color C0");
-   						    	cout<<"\t\t\t\t\t\tLoading Page";
-   						    	cout<<".";
-   						    	sleep(2);
-   						    	cout<<".";
-   						    	sleep(2);
-   						    	cout<<".";
-   						    	sleep(2);
-   						    	cout<<".";
-   						    	sleep(2);
-   						    	cout<<".";
-   						    	sleep(2);
-   						    	do{
-    						    Travel T;
-    						    Hotel H;
-								fstream F;
-    						    system("clear");
-    						    //system("color 8B");
+					if(strcmp(P.username_conf(),username)==0)
+					{
+   						cout<<"Enter your password: ";
+   						cin>>password;
+   						if(strcmp(P.password_conf(),password)==0)
+   						{
+   						    system("clear");
+   						    //system("color C0");
+   						    cout<<"\t\t\t\t\t\tLoading Page";
+   						    cout<<".";
+   						    sleep(2);
+   						    cout<<".";
+   						    sleep(2);
+   						    cout<<".";
+   						    sleep(2);
+   							cout<<".";
+   						   	sleep(2);
+   					    	cout<<".";
+   					    	sleep(2);
+   					    	do{
+    					    Travel T;
+    					    Hotel H;
+							fstream F;
+ 						    system("clear");
+							//system("color 8B");
 							    cout<<"\n\n\t\t\t\t\t\t***MAIN MENU***"<<endl;
 								cout<<"\t\t\t\t\t\t1.New Trip or Hotel."<<endl;
 								cout<<"\t\t\t\t\t\t2.Show travelling history."<<endl;
@@ -914,10 +916,10 @@ int main()
 								cout<<"\t\t\t\t\t\t5.Modify travelling history."<<endl;
 								cout<<"\t\t\t\t\t\tSelect your choice: ";
 							    cin>>choice2;
-	    switch(choice2)
-    {
-	case 1: {     cout<<"1.Trip Planner"<<endl;
-	              cout<<"2.Hotel Planner"<<endl;
+	    						switch(choice2)
+    							{
+									case 1:{cout<<"1.Trip Planner"<<endl;
+	              							cout<<"2.Hotel Planner"<<endl;
 	              cout<<"Select your choice: ";
 	              cin>>choice3;
 	    switch(choice3)
@@ -928,9 +930,9 @@ int main()
 				  char answer1='y';
 				  while(answer1=='y')
 				  {
-					T.Input();
+					T.Input_trip();
 					F.write((char*)&T,sizeof(T));
-					cout<<"Do you want to add a new trip again...?";
+					cout<<"Do you want to plan a new trip again...?";
 					cin>>answer1;
 					system("clear");
 				  }
@@ -941,7 +943,7 @@ int main()
 				  char answer2='y';
 				  while(answer2=='y')
 				  {
-					H.inputt();
+					H.input_hotel();
 					F.write((char*)&H,sizeof(H));
 					cout<<"Do you want to add a new Place for Hotel again...?";
 					cin>>answer2;
@@ -954,7 +956,7 @@ int main()
 	case 2: {
                   cout<<"1.Trip History"<<endl;
 	              cout<<"2.Hotel History"<<endl;
-	              cout<<"Select your choice = ";
+	              cout<<"Please enter which history you want to see: ";
 	              cin>>choice4;
 	              switch(choice4)
 	              {
@@ -963,7 +965,7 @@ int main()
 	                F.open("NewTravel.txt",ios::in);
 					while(F.read((char*)&T,sizeof(T)))
 					{
-					 T.Display();
+					 T.Display_trip();
 				    }
 				     F.close();
 	              }break;
@@ -972,7 +974,7 @@ int main()
 	                F.open("Hotel.txt",ios::in);
 					while(F.read((char*)&H,sizeof(H)))
 					{
-					 H.displayy();
+					 H.display_hotel();
 				    }
 				     F.close();  
   	            }break;
@@ -981,31 +983,31 @@ int main()
 	case 3: {    
 	              cout<<"1.Trip Search"<<endl;
 	              cout<<"2.Hotel Search"<<endl;
-	              cout<<"Select your choice = ";
+	              cout<<"Please enter which option you want to search: ";
 	              cin>>choice5;
 	              switch(choice5)
 	              {
 	              case 1: { //system("color 79");
-	                      int pcode;
-					      cout<<"Enter the Passenger code for the Trip to be searched = ";
-						  cin>>pcode;
+	                      int passenger_code_trip;
+					      cout<<"Enter the Passenger code for the trip to be searched for: ";
+						  cin>>passenger_code_trip;
 						  F.open("NewTravel.txt",ios::in);
 						  while(F.read((char*)&T,sizeof(T)))
 					       {
-					         if(T.passecode()==pcode)
-					         T.Display();
+					         if(T.passenger_code_trip_search()==passenger_code_trip)
+					         T.Display_trip();
 					       }
 					 	F.close();
 	                      }break;
 	              case 2:{ //system("color 79");
-	                      int hcode;
-					      cout<<"Enter the Passenger code for the Hotel to be searched = ";
-						  cin>>hcode;
+	                      int passenger_code_hotel;
+					      cout<<"Enter the Passenger code for the Hotel to be searched for: ";
+						  cin>>passenger_code_hotel;
 						  F.open("Hotel.txt",ios::in);
 						  while(F.read((char*)&H,sizeof(H)))
 					       {
-					         if(H.ppascodee()==hcode)
-					         H.displayy();
+					         if(H.passenger_code_hotel_search()==passenger_code_hotel)
+					         H.display_hotel();
 					       }
 					 	F.close();
 	                      }break;              
@@ -1013,20 +1015,20 @@ int main()
             }break;
 	case 4: {     cout<<"1.Delete Trip"<<endl;
 	              cout<<"2.Cancel Hotel"<<endl;
-	              cout<<"Select your choice = ";
+	              cout<<"Select your choice: ";
 	              cin>>choice6;
 	              switch(choice6)
               {
         case 1: {   //system("color F5");
 	                fstream ftemp,x,y;
-					int flag=0,pcode;
+					int flag=0,passenger_code_trip;
 					ftemp.open("Travelinfo.txt",ios::out);
 					cout<<"Enter the passenger code for the Trip to be deleted = ";
-					cin>>pcode;
+					cin>>passenger_code_trip;
 					F.open("NewTravel.txt",ios::in);
 					while(F.read((char*)&T,sizeof(T)))
 					{
-					 if(T.passecode()==pcode)
+					 if(T.passenger_code_trip_search()==passenger_code_trip)
 						flag=1;
 					 else
 						ftemp.write((char*)&T,sizeof(T));
@@ -1050,14 +1052,14 @@ int main()
 		         {
          			//system("color F5");
 	                fstream ftempp,e,r;
-					int flag=0,hcode;
+					int flag=0,passenger_code_hotel;
 					ftempp.open("Hotelinfo.txt",ios::out);
 					cout<<"Enter the passenger code for Hotel to be deleted = ";
-					cin>>hcode;
+					cin>>passenger_code_hotel;
 					F.open("Hotel.txt",ios::in);
 					while(F.read((char*)&H,sizeof(H)))
 					{
-					 if(H.ppascodee()==hcode)
+					 if(H.passenger_code_hotel_search()==passenger_code_hotel)
 						flag=1;
 					 else
 						ftempp.write((char*)&H,sizeof(H));
@@ -1081,22 +1083,22 @@ int main()
            }break;
       case 5: {  cout<<"1.Modify Trip"<<endl;
 	             cout<<"2.Modify Hotel History"<<endl;
-	             cout<<"Select your choice = ";
+	             cout<<"Select your choice: ";
 	             cin>>choice7;
 	                switch(choice7)
 		          {		 
          case 1:{   //system("color E4"); 
 		            fstream ftemp,x,y;
-					int flag=0,pcode;
+					int flag=0,passenger_code_trip;
 					ftemp.open("Travelinfo.txt",ios::out);
-					cout<<"Enter the passenger code for the Trip to be Modified=";
-					cin>>pcode;
+					cout<<"Enter the passenger code for the Trip to be Modified: ";
+					cin>>passenger_code_trip;
 					F.open("NewTravel.txt",ios::in);
 					while(F.read((char*)&T,sizeof(T)))
 					{
-					 if(T.passecode()==pcode)
+					 if(T.passenger_code_trip_search()==passenger_code_trip)
 					  {
-						T.Input();
+						T.Input_trip();
 						ftemp.write((char*)&T,sizeof(T));
 						flag=1;
 					  }
@@ -1121,16 +1123,16 @@ int main()
           case 2: {
                     //system("color E4"); 
 		            fstream ftempp,e,r;
-					int flag=0,hcode;
+					int flag=0,passenger_code_hotel;
 					ftempp.open("Hotelinfo.txt",ios::out);
-					cout<<"Enter the passenger code for Hotel to be Modified=";
-					cin>>hcode;
+					cout<<"Enter the passenger code for Hotel to be Modified: ";
+					cin>>passenger_code_hotel;
 					F.open("Hotel.txt",ios::in);
 					while(F.read((char*)&H,sizeof(H)))
 					{
-					 if(H.ppascodee()==hcode)
+					 if(H.passenger_code_hotel_search()==passenger_code_hotel)
 					  {
-						H.inputt();
+						H.input_hotel();
 						ftempp.write((char*)&H,sizeof(H));
 						flag=1;
 					  }
@@ -1155,7 +1157,7 @@ int main()
 		           }
 			  }break;
 	}
-	cout<<"Do you want to Select any other Option ?";
+	cout<<"Do you want to Select any other Option?";
 	cin>>answer3;				 						  
 	    	}while(answer3=='y');
    						    }
