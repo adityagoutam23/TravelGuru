@@ -896,7 +896,7 @@ int main()
 	              						cout<<"Please enter which history you want to see: ";
 	              						cin>>choice4;
 	              						switch(choice4){
-        									case 1: {       
+        									case 1: { 
 													//system("color 0E");
 	                								F.open("NewTravel.txt",ios::in);
 													while(F.read((char*)&T,sizeof(T))){
@@ -1150,5 +1150,5 @@ int main()
 	   	cout<<"I";		
 		sleep(1);
 	   	cout<<"N"<<endl<<endl;	
-		return 0;	`
+		return 0;
 }
