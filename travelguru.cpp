@@ -9,100 +9,87 @@
 
 using namespace std;
 
-class Travel
-{
-	 float passenger_code;
-	 char passenger_name[40];
-	 int vehicle;
-	 char destination[40];
-	 int Total_price,price,discount_travel;
-	 float distance;
+class Travel{
+	float passenger_code;
+	char passenger_name[40];
+	int vehicle;
+	char destination[40];
+	int Total_price,price,discount_travel;
+	float distance;
 	public:
-	 int passenger_code_trip_search()
-	 {
- 		return passenger_code;
- 	 }
-	 Travel()
-	 {
+		int passenger_code_trip_search(){
+ 			return passenger_code;
+ 	 	}
+	Travel(){
  		passenger_code=101;
  		strcpy(passenger_name,"Aditya");
  		Total_price=0;
  		price=0;
  		discount_travel=0;
  		distance=0;
- 	 }
- 	void calcluate_price(int ,float)
-	 {
- 	    if(vehicle==1)
-		 {
+ 	}
+ 	void calcluate_price(int ,float){
+ 		if(vehicle==1){
  			if(distance<=500)
- 			 price=5000;
+ 				price=5000;
  			else if((distance>500)&&(distance<=1000))
-			 price=6000;
+				price=6000;
 			else if((distance>1000)&&(distance<=1500))
-			 price=8000;
+				price=8000;
 			else if((distance>1500)&&(distance<=2000))
-			 price=9000;
+				price=9000;
 			else if(distance>2000)
-			 price=12000; 	    
- 		 }
-		 else if(vehicle==2)
-		 {
+				price=12000; 	    
+ 		}
+		else if(vehicle==2){
  			if(distance<=500)
- 			 price=2500;
+ 				price=2500;
  			else if((distance>500)&&(distance<=1000))
-			 price=4000;
+				price=4000;
 			else if((distance>1000)&&(distance<=1500))
-			 price=5000;
+				price=5000;
 			else if((distance>1500)&&(distance<=2000))
-			 price=6000;
+				price=6000;
 			else if(distance>2000)
-			 price=8000; 	    
- 		 }
-		 else if(vehicle==3)
-		 {
+				price=8000; 	    
+ 		}
+		else if(vehicle==3){
  			if(distance<=500)
- 			 price=2000;
+ 				price=2000;
  			else if((distance>500)&&(distance<=1000))
-			 price=3500;
+				price=3500;
 			else if((distance>1000)&&(distance<=1500))
-			 price=5000;
+				price=5000;
 			else if((distance>1500)&&(distance<=2000))
-			 price=6000;
+				price=6000;
 			else if(distance>2000)
-			 price=7500; 	    
- 		 }
-		 else if(vehicle==4)
-		 {
+				price=7500; 	    
+ 		}
+		else if(vehicle==4){
  			if(distance<=500)
- 			 price=5500;
+ 				price=5500;
  			else if((distance>500)&&(distance<=1000))
-			 price=7000;
+				price=7000;
 			else if((distance>1000)&&(distance<=1500))
-			 price=9000;
+				price=9000;
 			else if((distance>1500)&&(distance<=2000))
-			 price=10000;
+				price=10000;
 			else if(distance>2000)
-			 price=13000; 		    
- 		 }
- 		 discount(price);
-	 }
-	void discount(float)
-	{
+				price=13000; 		    
+ 		}
+ 		discount(price);
+	}
+	void discount(float){
 		if(price<=2000)
-		 Total_price=price-0.05*price;
-		
+		 	Total_price=price-0.05*price;
 		else if((price>2000)&&(price<=6000))
-		 Total_price=price-0.1*price;
-		
+			Total_price=price-0.1*price;
 		else if((price>6000)&&(price<=10000))
-		 Total_price=price-0.15*price;
-		 
+		 	Total_price=price-0.15*price;
 		else if((price>10000)&&(price<=15000))
-		 Total_price=price-0.2*price;    	
- 	 } 
- 	void Input_trip()
-	 {
+		 	Total_price=price-0.2*price;    	
+ 	} 
+ 	void Input_trip(){
  		cout<<"Enter the Passenger Code: ";
  		cin>>passenger_code;
  		cout<<"Enter the Passenger's name: ";
@@ -116,46 +103,39 @@ class Travel
 	    cout<<"Enter total distance to be travelled: ";
 	    cin>>distance;
 	    calcluate_price(vehicle,distance);
- 	 }
-	void Display_trip()
-	{
+ 	}
+	void Display_trip(){
 		cout<<"Your Passenger code: "<<passenger_code<<endl;
 		cout<<"Passenger name: "<<passenger_name<<endl;
 		if (vehicle==1)
-		 cout<<"Vehicle type: Car"<<endl;
+		 	cout<<"Vehicle type: Car"<<endl;
 		else if (vehicle==2)
-		 cout<<"Vehicle type: Bus"<<endl;
+		 	cout<<"Vehicle type: Bus"<<endl;
 	    else if ( vehicle==3)
-		 cout<<"Vehicle type: Train"<<endl;
+		 	cout<<"Vehicle type: Train"<<endl;
 		else if (vehicle==4)
-		 cout<<"Vehicle type: Plane"<<endl;
+		 	cout<<"Vehicle type: Plane"<<endl;
 	 	cout<<"Your Destination: "<<destination<<endl;
 		cout<<"Price: "<<price<<endl;  
 		cout<<"Total Amount to be paid  after discount: "<<Total_price<<endl;		 
 	}   
 };
-class Passenger :public Travel
-{
-		//int Pno;
-		char user_name[40],password[16],first_name[40],last_name[40],passcode[16];
+class Passenger :public Travel{
+	char user_name[40],password[16],first_name[40],last_name[40],passcode[16];
 	public:
-	   char* username_conf()
-	 {
-		return user_name;
-	 }
-	   char* password_conf()
-	 {
-		return password;
-	 }
-	  Passenger()
-	  {
+		char* username_conf(){
+			return user_name;
+		}
+	   	char* password_conf(){
+			return password;
+	 	}
+	Passenger(){
  		strcpy(first_name,"Aditya");
  		strcpy(last_name,"Goutam");
   		strcpy(user_name,"adityagoutam");
   		strcpy(password,"qwerty");
-  	  }
-	void Getinfo()
-	{
+  	}
+	void Getinfo(){
 		cout<<"Enter your first name: ";
 		cin>>first_name;
 		cout<<"Enter your last name: ";
@@ -166,424 +146,382 @@ class Passenger :public Travel
 		cin>>password;
 		cout<<"Confirm password: ";
 		cin>>passcode;
-		if(strcmp(password,passcode)==0)
-		{
-		 cout<<"Account has been created"<<endl;
-		 sleep(2);
+		if(strcmp(password,passcode)==0){
+		 	cout<<"Account has been created"<<endl;
+		 	sleep(2);
 		}
-		else 
-	    {
-		 cout<<"Something went wrong"<<endl;		
+		else {
+		 	cout<<"Something went wrong"<<endl;		
 	    }
 	}
-	void Showinfo()
-	{
+	void Showinfo(){
 		cout<<"Name = "<<first_name<<endl;
 		cout<<"Your username = "<<user_name<<endl;
 	}		
 };
-class Passenger_info: public Passenger
-{
- int passenger_num;
- char Mobile_num[10];
- char Gender[6];
- int age;
- public:
- Passenger_info()
- {
- 	passenger_num=101;
- 	strcpy(Mobile_num,"9876543201");
- 	strcpy(Gender,"male");
- 	age=18;	
- }
- void Details_input()
- {
- 	cout<<"Enter your passenger number: ";
- 	cin>>passenger_num;
- 	cout<<"Enter your mobile number: ";
- 	cin>>Mobile_num;
- 	cout<<"Enter your Gender: ";
- 	cin>>Gender;
- 	cout<<"Enter your age: ";
- 	cin>>age;
- }		
+class Passenger_info: public Passenger{
+	int passenger_num;
+ 	char Mobile_num[10];
+ 	char Gender[6];
+ 	int age;
+ 	public:
+ 	Passenger_info(){
+ 		passenger_num=101;
+ 		strcpy(Mobile_num,"9876543201");
+ 		strcpy(Gender,"male");
+ 		age=18;	
+ 	}
+ 	void Details_input(){
+ 		cout<<"Enter your passenger number: ";
+ 		cin>>passenger_num;
+ 		cout<<"Enter your mobile number: ";
+ 		cin>>Mobile_num;
+ 		cout<<"Enter your Gender: ";
+ 		cin>>Gender;
+ 		cout<<"Enter your age: ";
+ 		cin>>age;
+ 	}		
 };
-class Hotel
-{
+class Hotel{
 	int passenger_code_hotel,family_members,total_price,continent,currency_price;
 	long int hotel_price, hotel_final_price;
 	char passenger_name_hotel[20], country, city[20];
 	char answer5;
-public:
-    int passenger_code_hotel_search()
-	{
+	public:
+    int passenger_code_hotel_search(){
 		return passenger_code_hotel;
 	} 
-    void do_calculation(char,int)
-    {
-       if(country=='A')
-	   { 	
- 	    	if((family_members>=1)&&(family_members<=4))
- 	    	{hotel_price=25000;
- 	    	hotel_final_price=25000*0.098;}
- 	    	else if(family_members>=5)
- 	    	{hotel_price=50000;
- 	    	hotel_final_price=50000*0.098;}
-	   }
-	   else if(country=='B')
-	   { 	
- 	    	if((family_members>=1)&&(family_members<=4))
- 	    	{hotel_price=25000;
- 	    	hotel_final_price=25000*0.11;}
- 	    	else if(family_members>=5)
- 	    	{hotel_price=50000;
- 	    	hotel_final_price=50000*0.11;} 
-	   }
-	   else if(country=='C')
-	   { 	
+    void do_calculation(char,int){
+    	if(country=='A'){ 	
+ 	    	if((family_members>=1)&&(family_members<=4)){
+		 		hotel_price=25000;
+ 	    		hotel_final_price=25000*0.098;
+			}
+ 	    	else if(family_members>=5){
+				hotel_price=50000;
+ 	    		hotel_final_price=50000*0.098;
+			}
+		}
+	   	else if(country=='B'){ 	
+ 	    	if((family_members>=1)&&(family_members<=4)){
+				hotel_price=25000;
+ 	 		   	hotel_final_price=25000*0.11;
+			}
+ 	    	else if(family_members>=5){
+				hotel_price=50000;
+ 	    		hotel_final_price=50000*0.11;
+			} 
+		}
+	   	else if(country=='C'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*1;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*1;} 
-	   }
-	   else if(country=='D')
-	   { 	
+	   	}
+	   	else if(country=='D'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*1.52;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*1.52;} 
-	   }
-	   else if(country=='E')
-	   { 	
+	   	}
+	   	else if(country=='E'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*1.60;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*1.60;} 
-	   }
-	   else if(country=='F')
-	   { 	
+	   	}
+	   	else if(country=='F'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.058;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.058;} 
-	   }
-	   else if(country=='G')
-	   { 	
+	   	}
+	   	else if(country=='G'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.051;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.051;} 
-	   }
-	   else if(country=='H')
-	   { 	
+	   	}
+	   	else if(country=='H'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.89;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.89;} 
-	   }
-	   else if(country=='I')
-	   { 	
+	   	}
+	   	else if(country=='I'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.052;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.052;} 
-	   }
-	   else if(country=='J')
-	   { 	
+	   	}
+	   	else if(country=='J'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.019;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.019;} 
-	   }
-	   else if(country=='K')
-	   { 	
+	   	}
+	   	else if(country=='K'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.051;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.051;} 
-	   }
-	   else if(country=='L')
-	   { 	
+	   	}
+	   	else if(country=='L'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='M')
-	   { 	
+	   	}
+	   	else if(country=='M'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='N')
-	   { 	
+	   	}
+	   	else if(country=='N'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='O')
-	   { 	
+	   	}
+	   	else if(country=='O'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='P')
-	   { 	
+	   	}
+	   	else if(country=='P'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='Q')
-	   { 	
+	   	}
+	   	else if(country=='Q'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='R')
-	   { 	
+	   	}
+	   	else if(country=='R'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.013;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.013;} 
-	   }
-	   else if(country=='S')
-	   { 	
+	   	}
+	   	else if(country=='S'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.014;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.014;} 
-	   }
-	   else if(country=='T')
-	   { 	
+	   	}
+	   	else if(country=='T'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.018;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.018;} 
-	   }
-	   else if(country=='U')
-	   { 	
+	   	}
+	   	else if(country=='U'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*1.96;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*1.96;} 
-	   }
-	   else if(country=='V')
-	   { 	
+	   	}
+	   	else if(country=='V'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.27;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.27;} 
-	   }
-	   else if(country=='W')
-	   { 	
+	   	}
+	   	else if(country=='W'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.014;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.014;} 
-	   }
-	   else if(country=='X')
-	   { 	
+	   	}
+	   	else if(country=='X'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.014;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.014;} 
-	   }
-	   else if(country=='Y')
-	   { 	
+	   	}
+	   	else if(country=='Y'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.83;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.83;} 
-	   }
-	   else if(country=='Z')
-	   { 	
+	   	}
+	   	else if(country=='Z'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.058;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.058;} 
-	   }
-	   else if(country=='a')
-	   { 	
+	   	}
+	   	else if(country=='a'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*10.54;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*10.54;} 
-	   }
-	   else if(country=='b')
-	   { 	
+	   	}
+	   	else if(country=='b'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*46.63;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*46.63;} 
-	   }
-	   else if(country=='c')
-	   { 	
+	   	}
+	   	else if(country=='c'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.52;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.52;} 
-	   }
-	   else if(country=='d')
-	   { 	
+	   	}
+	   	else if(country=='d'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.23;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.23;} 
-	   }
-	   else if(country=='e')
-	   { 	
+	   	}
+	   	else if(country=='e'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.077;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.077;} 
-	   }
-	   else if(country=='f')
-	   { 	
+	   	}
+	   	else if(country=='f'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*1.43;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*1.43;} 
-	   }
-	   else if(country=='g')
-	   { 	
+	   	}
+	   	else if(country=='g'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*5.06;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*5.06;} 
-	   }
-	      else if(country=='h')
-	   { 	
+	   	}
+	    else if(country=='h'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.21;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.21;} 
-	   }
-	      else if(country=='i')
-	   { 	
+	   	}
+	    else if(country=='i'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.19;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.19;} 
-	   }
-	   else if(country=='j')
-	   { 	
+	   	}
+	   	else if(country=='j'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.020;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.020;} 
-	   }
-	   else if(country=='k')
-	   { 	
+	   	}
+	   	else if(country=='k'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.020;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.020;} 
-	   }
-	   else if(country=='l')
-	   { 	
+	   	}
+	   	else if(country=='l'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.020;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.020;} 
-	   }
-	   else if(country=='m')
-	   { 	
+	   	}
+	   	else if(country=='m'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
  	    	{hotel_price=25000;
  	    	hotel_final_price=25000*0.020;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
  	    	hotel_final_price=50000*0.020;} 
-	   }
-	   else
-	    cout<<"ERROR..........."<<endl;
+	   	}
+	   	else
+	   	 	cout<<"ERROR..........."<<endl;
 		do_discount(hotel_price,hotel_final_price);    
     }
     void do_discount(float,float)
     {
-    	if(hotel_price<=25000)
-    	{total_price=hotel_price-0.10*hotel_price;
-    	total_price=hotel_final_price-0.10*hotel_final_price;}
-    	else if(hotel_price>25000)
-    	{total_price=hotel_price-0.15*hotel_price;
-    	total_price=hotel_final_price-0.15*hotel_final_price;}
+    	if(hotel_price<=25000){
+			total_price=hotel_price-0.10*hotel_price;
+    		total_price=hotel_final_price-0.10*hotel_final_price;
+		}
+    	else if(hotel_price>25000){
+			total_price=hotel_price-0.15*hotel_price;
+    		total_price=hotel_final_price-0.15*hotel_final_price;
+		}
     }
 	void input_hotel()
 	{
@@ -595,92 +533,92 @@ public:
  		cin>>answer5;
  		if(answer5=='y')
  		{
- 		   cout<<"You can choose your Place for stay"<<endl;
- 		   cout<<"1. Asia"<<endl;
- 		   cout<<"2. Europe"<<endl;
- 		   cout<<"3. North America"<<endl;
- 		   cout<<"4. South America"<<endl;
- 		   cout<<"5. Africa"<<endl;
- 		   cout<<"6. Australia"<<endl;
- 		   cout<<"7. Antarctica"<<endl;
- 		   cout<<"Enter the No. corresponding to the Continent in which you have to live = ";
- 		   cin>>continent;
- 		   if (continent==1)
- 		   {
-   		 	   cout<<"You can select from the following Countries"<<endl;
-   		 	   cout<<"A. China"<<endl;
-   		 	   cout<<"B. Hong Kong"<<endl;
-   		 	   cout<<"C. India"<<endl;
-   		 	   cout<<"D. Japan"<<endl;
-   		 	   cout<<"E. Nepal"<<endl;
-   		 	   cout<<"F. Malaysia"<<endl;
-   		 	   cout<<"G. Qatar"<<endl;
-   		 	   cout<<"H. Russia"<<endl;
-   		 	   cout<<"I. Saudi Arabia"<<endl;
-   		 	   cout<<"J. Singapore"<<endl;
-   		 	   cout<<"K. UAE"<<endl;
- 		   }
-   		   else if(continent==2)
-			   {
-   		 	      cout<<"L. Germany"<<endl;
-   		 	      cout<<"M. United Kingdom"<<endl;
-   		 	      cout<<"N. Spain"<<endl;
-   		 	      cout<<"O. France"<<endl;
-   		 	      cout<<"P. Italy"<<endl;
-   		 	      cout<<"Q. Poland"<<endl;
-   		 	      cout<<"R. Denmark"<<endl;
-   		       }
-           else if(continent==3)
-		   {
-   		 	   cout<<"You can select from the following Countries"<<endl;
-   		 	   cout<<"S. Bermuda"<<endl;
-   		 	   cout<<"T. Canada"<<endl;
-   		 	   cout<<"U. Jamaica"<<endl;
-   		 	   cout<<"V. Mexico"<<endl;
-   		 	   cout<<"W. Panama"<<endl;
-   		 	   cout<<"X. USA"<<endl;
- 		   }
+ 			cout<<"You can choose your Place for stay"<<endl;
+ 		   	cout<<"1. Asia"<<endl;
+ 		   	cout<<"2. Europe"<<endl;
+ 		   	cout<<"3. North America"<<endl;
+ 		   	cout<<"4. South America"<<endl;
+ 		   	cout<<"5. Africa"<<endl;
+ 		   	cout<<"6. Australia"<<endl;
+ 		   	cout<<"7. Antarctica"<<endl;
+ 		   	cout<<"Enter the No. corresponding to the Continent in which you have to live = ";
+ 		   	cin>>continent;
+ 		   	if (continent==1)
+ 		   	{
+   		 	   	cout<<"You can select from the following Countries"<<endl;
+   		 	   	cout<<"A. China"<<endl;
+   		 	   	cout<<"B. Hong Kong"<<endl;
+   		 	   	cout<<"C. India"<<endl;
+   		 	   	cout<<"D. Japan"<<endl;
+   		 	   	cout<<"E. Nepal"<<endl;
+   		 	   	cout<<"F. Malaysia"<<endl;
+   		 	   	cout<<"G. Qatar"<<endl;
+   		 	   	cout<<"H. Russia"<<endl;
+   		 	   	cout<<"I. Saudi Arabia"<<endl;
+   		 	   	cout<<"J. Singapore"<<endl;
+   		 	   	cout<<"K. UAE"<<endl;
+ 		   	}
+   		   	else if(continent==2)
+				{
+   		 	      	cout<<"L. Germany"<<endl;
+   		 	      	cout<<"M. United Kingdom"<<endl;
+   		 	      	cout<<"N. Spain"<<endl;
+   		 	      	cout<<"O. France"<<endl;
+   		 	      	cout<<"P. Italy"<<endl;
+   		 	      	cout<<"Q. Poland"<<endl;
+   		 	      	cout<<"R. Denmark"<<endl;
+   		       	}	
+           	else if(continent==3)
+		   	{
+   		 	   	cout<<"You can select from the following Countries"<<endl;
+   		 	   	cout<<"S. Bermuda"<<endl;
+   		 	   	cout<<"T. Canada"<<endl;
+   		 	   	cout<<"U. Jamaica"<<endl;
+   		 	   	cout<<"V. Mexico"<<endl;
+   		 	   	cout<<"W. Panama"<<endl;
+   		 	   	cout<<"X. USA"<<endl;
+ 		   	}
 			else if(continent==4)
-		   {
-   		 	   cout<<"You can select from the following Countries"<<endl;
-   		 	   cout<<"Y. Argentina"<<endl;
-   		 	   cout<<"Z. Brazil"<<endl;
-   		 	   cout<<"a. Chile"<<endl;
-   		 	   cout<<"b. Colombia"<<endl;
-   		 	   cout<<"c. Uruguay"<<endl;
- 		   }   
- 		   else if(continent==5)
-		   {
-   		 	   cout<<"You can select from the following Countries"<<endl;
-   		 	   cout<<"d. Egypt"<<endl;
-   		 	   cout<<"e. Ghana"<<endl;
-   		 	   cout<<"f. Kenya"<<endl;
-   		 	   cout<<"g. Nigeria"<<endl;
-   		 	   cout<<"h. South Africa"<<endl;
-   		 	   cout<<"i. Zambia"<<endl;
- 		   }
- 		   else if(continent==6)
-		   {
-   		 	   cout<<"You can select from the following Countries"<<endl;
-   		 	   cout<<"j. Sydney"<<endl;
-   		 	   cout<<"k. Melbourne"<<endl;
-   		 	   cout<<"l. Adelaide"<<endl;
-   		 	   cout<<"m. Perth"<<endl;
- 		   }
- 		   else if(continent==7)
- 		   {
-   		       cout<<"We dont provide Services in Antartica"<<endl;	
-   		   }
- 		   cout<<"Enter the Alphabet either in Capital or Small Letter corresponding to the Country which you want = ";  
-           cin>>country;
-   		   cout<<"Enter the City you want to stay in = ";
-   		   cin>>city;
- 		   cout<<"Please enter how many family members do you have ";
- 		   cin>>family_members;
-	       do_calculation(country,family_members);
+		   	{
+   		 	   	cout<<"You can select from the following Countries"<<endl;
+   		 	   	cout<<"Y. Argentina"<<endl;
+   		 	   	cout<<"Z. Brazil"<<endl;
+   		 	   	cout<<"a. Chile"<<endl;
+   		 	   	cout<<"b. Colombia"<<endl;
+   		 	   	cout<<"c. Uruguay"<<endl;
+ 		   	}   	
+ 		   	else if(continent==5)
+		   	{
+   		 	   	cout<<"You can select from the following Countries"<<endl;
+   		 	   	cout<<"d. Egypt"<<endl;
+   		 	   	cout<<"e. Ghana"<<endl;
+   		 	   	cout<<"f. Kenya"<<endl;
+   		 	   	cout<<"g. Nigeria"<<endl;
+   		 	   	cout<<"h. South Africa"<<endl;
+   		 	   	cout<<"i. Zambia"<<endl;
+			}
+ 		   	else if(continent==6)
+		   	{
+   		 	   	cout<<"You can select from the following Countries"<<endl;
+   		 	   	cout<<"j. Sydney"<<endl;
+   		 	   	cout<<"k. Melbourne"<<endl;
+   		 	   	cout<<"l. Adelaide"<<endl;
+   		 	   	cout<<"m. Perth"<<endl;
+ 		   	}
+ 		   	else if(continent==7)
+ 		   	{
+   		       	cout<<"We dont provide Services in Antartica"<<endl;	
+   		   	}
+ 		   	cout<<"Enter the Alphabet either in Capital or Small Letter corresponding to the Country which you want = ";  
+           	cin>>country;
+   		   	cout<<"Enter the City you want to stay in = ";
+   		   	cin>>city;
+ 		   	cout<<"Please enter how many family members do you have ";
+ 		   	cin>>family_members;
+	       	do_calculation(country,family_members);
  		}
  		else
- 		cout<<"First please see the Trip Planner";
+ 			cout<<"First please see the Trip Planner";
 	}
 	void display_hotel()
 	{
@@ -851,7 +789,7 @@ public:
  
 int main()
 {       
-        int choice1, choice2, choice3, choice4, choice5, choice6, choice7;
+    	int choice1, choice2, choice3, choice4, choice5, choice6, choice7;
         char answer3,answer4;
         do{
 		//system("color 0D");
@@ -866,29 +804,25 @@ int main()
 		fstream f;
 		cout<<"select your choice: ";
 		cin>>choice1;	
-    	switch(choice1)
-		{      
+    	switch(choice1){      
 		case 1: {           	
-					f.open("Travel.txt",ios::out);
-					PI.Details_input(); 
-					P.Getinfo();
-					f.write((char*)&P,sizeof(P));
+				f.open("Travel.txt",ios::out);
+				PI.Details_input(); 
+				P.Getinfo();
+				f.write((char*)&P,sizeof(P));
 		}
 		break;
 
 		case 2: { 		              
-	            	char username[40],password[16];
-					cout<<"Enter your username: ";
-					cin>>username;	
-	            	f.open("Travel.txt",ios::in);
-					while(f.read((char*)&P,sizeof(P)))
-					{
-					if(strcmp(P.username_conf(),username)==0)
-					{
+	            char username[40],password[16];
+				cout<<"Enter your username: ";
+				cin>>username;	
+	            f.open("Travel.txt",ios::in);
+				while(f.read((char*)&P,sizeof(P))){
+					if(strcmp(P.username_conf(),username)==0){
    						cout<<"Enter your password: ";
    						cin>>password;
-   						if(strcmp(P.password_conf(),password)==0)
-   						{
+   						if(strcmp(P.password_conf(),password)==0){
    						    system("clear");
    						    //system("color C0");
    						    cout<<"\t\t\t\t\t\tLoading Page";
@@ -908,303 +842,313 @@ int main()
 							fstream F;
  						    system("clear");
 							//system("color 8B");
-							    cout<<"\n\n\t\t\t\t\t\t***MAIN MENU***"<<endl;
-								cout<<"\t\t\t\t\t\t1.New Trip or Hotel."<<endl;
-								cout<<"\t\t\t\t\t\t2.Show travelling history."<<endl;
-								cout<<"\t\t\t\t\t\t3.Search travelling history."<<endl;
-								cout<<"\t\t\t\t\t\t4.Delete history."<<endl;
-								cout<<"\t\t\t\t\t\t5.Modify travelling history."<<endl;
-								cout<<"\t\t\t\t\t\tSelect your choice: ";
-							    cin>>choice2;
-	    						switch(choice2)
-    							{
-									case 1:{cout<<"1.Trip Planner"<<endl;
-	              							cout<<"2.Hotel Planner"<<endl;
-	              cout<<"Select your choice: ";
-	              cin>>choice3;
-	    switch(choice3)
-		{       
-        case 1: {
-       	          //system("color 0A");
-                  F.open("NewTravel.txt",ios::out|ios::app|ios::binary);
-				  char answer1='y';
-				  while(answer1=='y')
-				  {
-					T.Input_trip();
-					F.write((char*)&T,sizeof(T));
-					cout<<"Do you want to plan a new trip again...?";
-					cin>>answer1;
-					system("clear");
-				  }
-					F.close();  
-			    }break;
-		case 2:	{  
-			        F.open("Hotel.txt",ios::out|ios::app|ios::binary);
-				  char answer2='y';
-				  while(answer2=='y')
-				  {
-					H.input_hotel();
-					F.write((char*)&H,sizeof(H));
-					cout<<"Do you want to add a new Place for Hotel again...?";
-					cin>>answer2;
-					system("clear");
-				  }
-					F.close(); 
-		        }break;
-		}
-	}break;
-	case 2: {
-                  cout<<"1.Trip History"<<endl;
-	              cout<<"2.Hotel History"<<endl;
-	              cout<<"Please enter which history you want to see: ";
-	              cin>>choice4;
-	              switch(choice4)
-	              {
-        case 1:       	
-	              {       //system("color 0E");
-	                F.open("NewTravel.txt",ios::in);
-					while(F.read((char*)&T,sizeof(T)))
-					{
-					 T.Display_trip();
-				    }
-				     F.close();
-	              }break;
-		case 2: {
-			               //system("color 0E");
-	                F.open("Hotel.txt",ios::in);
-					while(F.read((char*)&H,sizeof(H)))
-					{
-					 H.display_hotel();
-				    }
-				     F.close();  
-  	            }break;
-	              }
-		    }break;
-	case 3: {    
-	              cout<<"1.Trip Search"<<endl;
-	              cout<<"2.Hotel Search"<<endl;
-	              cout<<"Please enter which option you want to search: ";
-	              cin>>choice5;
-	              switch(choice5)
-	              {
-	              case 1: { //system("color 79");
-	                      int passenger_code_trip;
-					      cout<<"Enter the Passenger code for the trip to be searched for: ";
-						  cin>>passenger_code_trip;
-						  F.open("NewTravel.txt",ios::in);
-						  while(F.read((char*)&T,sizeof(T)))
-					       {
-					         if(T.passenger_code_trip_search()==passenger_code_trip)
-					         T.Display_trip();
-					       }
-					 	F.close();
-	                      }break;
-	              case 2:{ //system("color 79");
-	                      int passenger_code_hotel;
-					      cout<<"Enter the Passenger code for the Hotel to be searched for: ";
-						  cin>>passenger_code_hotel;
-						  F.open("Hotel.txt",ios::in);
-						  while(F.read((char*)&H,sizeof(H)))
-					       {
-					         if(H.passenger_code_hotel_search()==passenger_code_hotel)
-					         H.display_hotel();
-					       }
-					 	F.close();
-	                      }break;              
-	              }
-            }break;
-	case 4: {     cout<<"1.Delete Trip"<<endl;
-	              cout<<"2.Cancel Hotel"<<endl;
-	              cout<<"Select your choice: ";
-	              cin>>choice6;
-	              switch(choice6)
-              {
-        case 1: {   //system("color F5");
-	                fstream ftemp,x,y;
-					int flag=0,passenger_code_trip;
-					ftemp.open("Travelinfo.txt",ios::out);
-					cout<<"Enter the passenger code for the Trip to be deleted = ";
-					cin>>passenger_code_trip;
-					F.open("NewTravel.txt",ios::in);
-					while(F.read((char*)&T,sizeof(T)))
-					{
-					 if(T.passenger_code_trip_search()==passenger_code_trip)
-						flag=1;
-					 else
-						ftemp.write((char*)&T,sizeof(T));
-					 }
-					 ftemp.close();
-					if (flag==1)
-					 cout<<"Record deleted"<<endl;
-					else
-					 cout<<"Record Not found"<<endl;
-					x.open("Travelinfo.txt",ios::in);
-					y.open("NewTravel.txt",ios::out);
-					while(x.read((char*)&T,sizeof(T)))
-					{
-					 y.write((char*)&T,sizeof(T));
-					}
-					x.close();
-					y.close();
-					F.close();
-                 }break;
-          case 2:
-		         {
-         			//system("color F5");
-	                fstream ftempp,e,r;
-					int flag=0,passenger_code_hotel;
-					ftempp.open("Hotelinfo.txt",ios::out);
-					cout<<"Enter the passenger code for Hotel to be deleted = ";
-					cin>>passenger_code_hotel;
-					F.open("Hotel.txt",ios::in);
-					while(F.read((char*)&H,sizeof(H)))
-					{
-					 if(H.passenger_code_hotel_search()==passenger_code_hotel)
-						flag=1;
-					 else
-						ftempp.write((char*)&H,sizeof(H));
-					 }
-					 ftempp.close();
-					if (flag==1)
-					 cout<<"Record deleted"<<endl;
-					else
-					 cout<<"Record Not found"<<endl;
-					e.open("Hotelinfo.txt",ios::in);
-					r.open("Hotel.txt",ios::out);
-					while(e.read((char*)&H,sizeof(H)))
-					{
-					 r.write((char*)&H,sizeof(H));
-					}
-					e.close();
-					r.close();
-					F.close();
-         		 }break;      
-	           }		
-           }break;
-      case 5: {  cout<<"1.Modify Trip"<<endl;
-	             cout<<"2.Modify Hotel History"<<endl;
-	             cout<<"Select your choice: ";
-	             cin>>choice7;
-	                switch(choice7)
-		          {		 
-         case 1:{   //system("color E4"); 
-		            fstream ftemp,x,y;
-					int flag=0,passenger_code_trip;
-					ftemp.open("Travelinfo.txt",ios::out);
-					cout<<"Enter the passenger code for the Trip to be Modified: ";
-					cin>>passenger_code_trip;
-					F.open("NewTravel.txt",ios::in);
-					while(F.read((char*)&T,sizeof(T)))
-					{
-					 if(T.passenger_code_trip_search()==passenger_code_trip)
-					  {
-						T.Input_trip();
-						ftemp.write((char*)&T,sizeof(T));
-						flag=1;
-					  }
-					 else
-						ftemp.write((char*)&T,sizeof(T));
-					 }
-					 ftemp.close();
-					if (flag==1)
-					 cout<<"Record Modified"<<endl;
-					else
-					 cout<<"Record Not found"<<endl;
-					x.open("Travelinfo.txt",ios::in);
-					y.open("NewTravel.txt",ios::out);
-					while(x.read((char*)&T,sizeof(T)))
-					{
-					 y.write((char*)&T,sizeof(T));
-					}
-					x.close();
-					y.close();
-                    	F.close();
-                 }break;
-          case 2: {
-                    //system("color E4"); 
-		            fstream ftempp,e,r;
-					int flag=0,passenger_code_hotel;
-					ftempp.open("Hotelinfo.txt",ios::out);
-					cout<<"Enter the passenger code for Hotel to be Modified: ";
-					cin>>passenger_code_hotel;
-					F.open("Hotel.txt",ios::in);
-					while(F.read((char*)&H,sizeof(H)))
-					{
-					 if(H.passenger_code_hotel_search()==passenger_code_hotel)
-					  {
-						H.input_hotel();
-						ftempp.write((char*)&H,sizeof(H));
-						flag=1;
-					  }
-					 else
-						ftempp.write((char*)&H,sizeof(H));
-					 }
-					 ftempp.close();
-					if (flag==1)
-					 cout<<"Record Modified"<<endl;
-					else
-					 cout<<"Record Not found"<<endl;
-					e.open("Hotelinfo.txt",ios::in);
-					r.open("Hotel.txt",ios::out);
-					while(e.read((char*)&H,sizeof(H)))
-					{
-					 r.write((char*)&H,sizeof(H));
-					}
-					e.close();
-					r.close();
-                    	F.close();          	
-                  }break;       
-		           }
-			  }break;
-	}
-	cout<<"Do you want to Select any other Option?";
-	cin>>answer3;				 						  
-	    	}while(answer3=='y');
-   						    }
- 				   else
-   				    cout<<"Incorrect password"<<endl;
+							cout<<"\n\n\t\t\t\t\t\t***MAIN MENU***"<<endl;
+							cout<<"\t\t\t\t\t\t1.New Trip or Hotel."<<endl;
+							cout<<"\t\t\t\t\t\t2.Show travelling history."<<endl;
+							cout<<"\t\t\t\t\t\t3.Search travelling history."<<endl;
+							cout<<"\t\t\t\t\t\t4.Delete history."<<endl;
+							cout<<"\t\t\t\t\t\t5.Modify travelling history."<<endl;
+							cout<<"\t\t\t\t\t\tSelect your choice: ";
+							cin>>choice2;
+	    					switch(choice2){
+								case 1: {
+										cout<<"1.Trip Planner"<<endl;
+	              						cout<<"2.Hotel Planner"<<endl;
+	             	 					cout<<"Select your choice: ";
+	              						cin>>choice3;
+	    								switch(choice3){       
+        									case 1:	{
+       	          									//system("color 0A");
+                  									F.open("NewTravel.txt",ios::out|ios::app|ios::binary);
+				  									char answer1='y';
+				  									while(answer1=='y'){
+														T.Input_trip();
+														F.write((char*)&T,sizeof(T));
+														cout<<"Do you want to plan a new trip again...?";
+														cin>>answer1;
+														system("clear");
+				  									}
+													F.close();  
+			    							}
+											break;
+
+											case 2:	{  
+			        								F.open("Hotel.txt",ios::out|ios::app|ios::binary);
+				  									char answer2='y';
+				  									while(answer2=='y'){
+														H.input_hotel();
+														F.write((char*)&H,sizeof(H));
+														cout<<"Do you want to add a new Place for Hotel again...?";
+														cin>>answer2;
+														system("clear");
+				  									}
+													F.close(); 
+		        							}
+											break;
+
+										}
+								}
+								break;
+
+								case 2: {
+                  						cout<<"1.Trip History"<<endl;
+	              						cout<<"2.Hotel History"<<endl;
+	              						cout<<"Please enter which history you want to see: ";
+	              						cin>>choice4;
+	              						switch(choice4){
+        									case 1: {       
+													//system("color 0E");
+	                								F.open("NewTravel.txt",ios::in);
+													while(F.read((char*)&T,sizeof(T))){
+					 									T.Display_trip();
+				    								}
+				     								F.close();
+	              							}
+											break;
+
+											case 2: {
+			               							//system("color 0E");
+	                								F.open("Hotel.txt",ios::in);
+													while(F.read((char*)&H,sizeof(H))){
+					 									H.display_hotel();
+				    								}
+				     								F.close();  
+  	            							}
+											break;
+	              						}
+		    					}
+								break;
+
+								case 3: {    
+	              						cout<<"1.Trip Search"<<endl;
+	              						cout<<"2.Hotel Search"<<endl;
+	              						cout<<"Please enter which option you want to search: ";
+	              						cin>>choice5;
+	              						switch(choice5){
+	              							case 1: { 
+												  	//system("color 79");
+	                      							int passenger_code_trip;
+					      							cout<<"Enter the Passenger code for the trip to be searched for: ";
+						  							cin>>passenger_code_trip;
+						  							F.open("NewTravel.txt",ios::in);
+						  							while(F.read((char*)&T,sizeof(T))){
+					         							if(T.passenger_code_trip_search()==passenger_code_trip)
+					         								T.Display_trip();
+					       							}
+					 								F.close();
+	                      					}
+											break;
+
+	              							case 2: { 
+												  	//system("color 79");
+	                      							int passenger_code_hotel;
+					      							cout<<"Enter the Passenger code for the Hotel to be searched for: ";
+						  							cin>>passenger_code_hotel;
+						  							F.open("Hotel.txt",ios::in);
+						  							while(F.read((char*)&H,sizeof(H))){
+					         							if(H.passenger_code_hotel_search()==passenger_code_hotel)
+					         								H.display_hotel();
+					       							}
+					 								F.close();
+	                      					}
+											break;              
+	              						}
+            					}
+								break;
+
+								case 4: {     
+										cout<<"1.Delete Trip"<<endl;
+	              						cout<<"2.Cancel Hotel"<<endl;
+	        		      				cout<<"Select your choice: ";
+	              						cin>>choice6;
+	              						switch(choice6){
+        									case 1: {   
+													//system("color F5");
+	                								fstream ftemp,x,y;
+													int flag=0,passenger_code_trip;
+													ftemp.open("Travelinfo.txt",ios::out);
+													cout<<"Enter the passenger code for the Trip to be deleted = ";
+													cin>>passenger_code_trip;
+													F.open("NewTravel.txt",ios::in);
+													while(F.read((char*)&T,sizeof(T))){
+					 									if(T.passenger_code_trip_search()==passenger_code_trip)
+															flag=1;
+					 									else
+															ftemp.write((char*)&T,sizeof(T));
+					 								}
+					 								ftemp.close();
+													if (flag==1)
+					 									cout<<"Record deleted"<<endl;
+													else
+					 									cout<<"Record Not found"<<endl;
+													x.open("Travelinfo.txt",ios::in);
+													y.open("NewTravel.txt",ios::out);
+													while(x.read((char*)&T,sizeof(T))){
+					 									y.write((char*)&T,sizeof(T));
+													}
+													x.close();
+													y.close();
+													F.close();
+                 							}
+											break;
+
+          									case 2: {
+         											//system("color F5");
+	                								fstream ftempp,e,r;
+													int flag=0,passenger_code_hotel;
+													ftempp.open("Hotelinfo.txt",ios::out);
+													cout<<"Enter the passenger code for Hotel to be deleted = ";
+													cin>>passenger_code_hotel;
+													F.open("Hotel.txt",ios::in);
+													while(F.read((char*)&H,sizeof(H))){
+					 									if(H.passenger_code_hotel_search()==passenger_code_hotel)
+															flag=1;
+					 									else
+															ftempp.write((char*)&H,sizeof(H));
+					 								}
+					 								ftempp.close();
+													if (flag==1)
+					 									cout<<"Record deleted"<<endl;
+													else
+					 									cout<<"Record Not found"<<endl;
+													e.open("Hotelinfo.txt",ios::in);
+													r.open("Hotel.txt",ios::out);
+													while(e.read((char*)&H,sizeof(H))){
+						 								r.write((char*)&H,sizeof(H));
+													}
+													e.close();
+													r.close();
+													F.close();
+         		 							}
+											break;      
+	           							}		
+           						}
+								break;
+
+      							case 5: {  
+									  	cout<<"1.Modify Trip"<<endl;
+	             						cout<<"2.Modify Hotel History"<<endl;
+	             						cout<<"Select your choice: ";
+	             						cin>>choice7;
+	                					switch(choice7){		 
+         									case 1:{   
+												 	//system("color E4"); 
+		            								fstream ftemp,x,y;
+													int flag=0,passenger_code_trip;
+													ftemp.open("Travelinfo.txt",ios::out);
+													cout<<"Enter the passenger code for the Trip to be Modified: ";
+													cin>>passenger_code_trip;
+													F.open("NewTravel.txt",ios::in);
+													while(F.read((char*)&T,sizeof(T))){
+					 									if(T.passenger_code_trip_search()==passenger_code_trip){
+															T.Input_trip();
+															ftemp.write((char*)&T,sizeof(T));
+															flag=1;
+					  									}
+					 									else
+															ftemp.write((char*)&T,sizeof(T));
+					 								}
+					 								ftemp.close();
+													if (flag==1)
+					 									cout<<"Record Modified"<<endl;
+													else
+					 									cout<<"Record Not found"<<endl;
+													x.open("Travelinfo.txt",ios::in);
+													y.open("NewTravel.txt",ios::out);
+													while(x.read((char*)&T,sizeof(T))){
+					 									y.write((char*)&T,sizeof(T));
+													}
+													x.close();
+													y.close();
+                    								F.close();
+                 							}
+											break;
+
+          									case 2: {
+                    								//system("color E4"); 
+		            								fstream ftempp,e,r;
+													int flag=0,passenger_code_hotel;
+													ftempp.open("Hotelinfo.txt",ios::out);
+													cout<<"Enter the passenger code for Hotel to be Modified: ";
+													cin>>passenger_code_hotel;
+													F.open("Hotel.txt",ios::in);
+													while(F.read((char*)&H,sizeof(H))){
+					 									if(H.passenger_code_hotel_search()==passenger_code_hotel){
+															H.input_hotel();
+															ftempp.write((char*)&H,sizeof(H));
+															flag=1;
+					  									}
+					 									else
+															ftempp.write((char*)&H,sizeof(H));
+					 								}
+					 								ftempp.close();
+													if (flag==1)
+					 									cout<<"Record Modified"<<endl;
+													else
+					 									cout<<"Record Not found"<<endl;
+													e.open("Hotelinfo.txt",ios::in);
+													r.open("Hotel.txt",ios::out);
+													while(e.read((char*)&H,sizeof(H))){
+					 									r.write((char*)&H,sizeof(H));
+													}
+													e.close();
+													r.close();
+                    								F.close();          	
+                  							}
+											break;       
+		         						}
+			  					}
+								break;
+							}
+							cout<<"Do you want to Select any other Option?";
+							cin>>answer3;				 						  
+	    					}while(answer3=='y');
+   						}
+ 				   	else
+   				    	cout<<"Incorrect password"<<endl;
    				    sleep(3);
-					   }
-   				 else
+					}
+   				else
 					cout<<"Incorrect username!!"<<endl;  
-					sleep(3);
-				    }
-				  }break;	  		  			  	
-	}	
-	   f.close();
-	   system("clear");
-	     cout<<"Do you want return to home page????\nType 'y' for yes ";
-         cin>>answer4;
+				sleep(3);
+				}
+		}
+		break;	  		  			  	
+		}	
+	   	f.close();
+	   	system("clear");
+	    cout<<"Do you want return to home page????\nType 'y' for yes ";
+        cin>>answer4;
 		}while(answer4=='y');
-	   system("clear");
-	   //system("color 60");
-	   sleep(1);
-	   cout<<"V";
-	   sleep(1);
- 	  cout<<"I";		
+	   	system("clear");
+	   	//system("color 60");
+	   	sleep(1);
+	   	cout<<"V";
+	   	sleep(1);
+ 	  	cout<<"I";		
   	 	sleep(1);
-	   cout<<"S";		
+	   	cout<<"S";		
 		sleep(1);
-	   cout<<"I";		
+	 	cout<<"I";		
 		sleep(1);
-	   cout<<"T";		
+	   	cout<<"T";		
 		sleep(1);
-	   cout<<" ";		
+	   	cout<<" ";		
 		sleep(1);
-	   cout<<"U";		
+	   	cout<<"U";		
 		sleep(1);
-	   cout<<"S";		
+	   	cout<<"S";		
 		sleep(1);
-	   cout<<" ";		
+	   	cout<<" ";		
 		sleep(1);
-	   cout<<"A";		
+	   	cout<<"A";		
 		sleep(1);
-	   cout<<"G";		
+	   	cout<<"G";		
 		sleep(1);
-	   cout<<"A";		
+	   	cout<<"A";		
 		sleep(1);
-	   cout<<"I";		
+	   	cout<<"I";		
 		sleep(1);
-	   cout<<"N"<<endl<<endl;	
-	   return 0;	
+	   	cout<<"N"<<endl<<endl;	
+		return 0;	`
 }
