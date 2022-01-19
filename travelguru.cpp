@@ -148,6 +148,7 @@ class Passenger :public Travel{
 		cin>>passcode;
 		if(strcmp(password,passcode)==0){
 		 	cout<<"Account has been created"<<endl;
+			cout.flush();
 		 	sleep(2);
 		}
 		else {
@@ -794,16 +795,23 @@ int main()
         do{
 		//system("color 0D");
 		system("clear");
-		cout<<"\n"<<right<<setw(63)<<setfill('*')<<"TravelGuru"<<right<<setw(57)<<setfill('*')<<"*"<<endl;
-		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
-		cout<<right<<setw(23)<<setfill(' ')<<"1.SINGUP"<<endl;
-		cout<<right<<setw(25)<<setfill(' ')<<"\n\t\t2.LOGIN"<<endl;
-		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
+		cout<<right<<setw(40)<<setfill(' ')<<"_"<<right<<setw(39)<<setfill('_')<<"_"<<"_"<<endl;
+    	cout<<right<<setw(65)<<setfill(' ')<<"TravelGuru"<<endl;
+    	cout<<right<<setw(40)<<setfill(' ')<<"_"<<right<<setw(39)<<setfill('_')<<"_"<<"_"<<endl;
+    	for(int i=0; i<8;i++){
+        	cout<<right<<setw(40)<<setfill(' ')<<"|"<<right<<setw(40)<<setfill(' ')<<"|"<<endl; 
+        	if(i==2)
+        		cout<<right<<setw(40)<<setfill(' ')<<"|"<<right<<setw(22)<<setfill(' ')<<"1.SIGNUP"<<right<<setw(18)<<setfill(' ')<<"|"<<endl;
+        	if(i==4)
+        		cout<<right<<setw(40)<<setfill(' ')<<"|"<<right<<setw(22)<<setfill(' ')<<"2.LOGIN"<<right<<setw(18)<<setfill(' ')<<"|"<<endl; 
+    	}
+    	cout<<right<<setw(40)<<setfill(' ')<<"*"<<right<<setw(39)<<setfill('-')<<"-"<<"*"<<endl;
 		Passenger P;
 		Passenger_info PI;
 		fstream f;
-		cout<<"select your choice: ";
-		cin>>choice1;	
+		cout<<right<<setw(65)<<setfill(' ')<<"select your choice: ";
+		cin>>choice1;
+		cout<<endl;
     	switch(choice1){      
 		case 1: {           	
 				f.open("Travel.txt",ios::out);
@@ -827,36 +835,59 @@ int main()
    						    //system("color C0");
    						    cout<<"\t\t\t\t\t\tLoading Page";
    						    cout<<".";
-   						    sleep(2);
+							cout.flush();
+   						    sleep(1);
    						    cout<<".";
-   						    sleep(2);
+							cout.flush();
+   						    sleep(1);
    						    cout<<".";
-   						    sleep(2);
+							cout.flush();
+   						    sleep(1);
    							cout<<".";
-   						   	sleep(2);
+							cout.flush();
+   						   	sleep(1);
    					    	cout<<".";
-   					    	sleep(2);
+							cout.flush();
+   					    	sleep(1);
    					    	do{
     					    Travel T;
     					    Hotel H;
 							fstream F;
  						    system("clear");
 							//system("color 8B");
-							cout<<"\n\n\t\t\t\t\t\t***MAIN MENU***"<<endl;
-							cout<<"\t\t\t\t\t\t1.New Trip or Hotel."<<endl;
-							cout<<"\t\t\t\t\t\t2.Show travelling history."<<endl;
-							cout<<"\t\t\t\t\t\t3.Search travelling history."<<endl;
-							cout<<"\t\t\t\t\t\t4.Delete history."<<endl;
-							cout<<"\t\t\t\t\t\t5.Modify travelling history."<<endl;
-							cout<<"\t\t\t\t\t\tSelect your choice: ";
+							cout<<right<<setw(49)<<setfill(' ')<<"-"<<right<<setw(14)<<setfill('-')<<"-"<<endl;
+    						cout<<right<<setw(64)<<setfill(' ')<<"|   MAIN MENU   |"<<endl;
+    						cout<<right<<setw(49)<<setfill(' ')<<"-"<<right<<setw(14)<<setfill('-')<<"-"<<endl<<endl;
+							cout<<right<<setw(38)<<setfill(' ')<<"_"<<right<<setw(34)<<setfill('_')<<"_"<<endl;
+                            for(int i=0; i<13; i++){
+                                if(i==2){
+                                    cout<<right<<setw(38)<<setfill(' ')<<"|"<<right<<setw(23)<<setfill(' ')<<"1. New Trip or Hotel"<<right<<setw(11)<<setfill(' ')<<"|"<<endl;
+                                }
+                                else if(i==4){
+                                    cout<<right<<setw(38)<<setfill(' ')<<"|"<<right<<setw(29)<<setfill(' ')<<"2. Show travelling history"<<right<<setw(5)<<setfill(' ')<<"|"<<endl;
+                                }
+                                else if(i==6){
+                                    cout<<right<<setw(38)<<setfill(' ')<<"|"<<right<<setw(31)<<setfill(' ')<<"3. Search travelling history"<<right<<setw(3)<<setfill(' ')<<"|"<<endl;
+                                }
+                                else if(i==8){
+                                    cout<<right<<setw(38)<<setfill(' ')<<"|"<<right<<setw(20)<<setfill(' ')<<"4. Delete history"<<right<<setw(14)<<setfill(' ')<<"|"<<endl;
+                                }
+                                else if(i==10){
+                                    cout<<right<<setw(38)<<setfill(' ')<<"|"<<right<<setw(31)<<setfill(' ')<<"5. Modify travelling history"<<right<<setw(3)<<setfill(' ')<<"|"<<endl;
+                                }
+                                else
+                                    cout<<right<<setw(38)<<setfill(' ')<<"|"<<right<<setw(34)<<setfill(' ')<<"|"<<endl;
+                            }
+                            cout<<right<<setw(38)<<setfill(' ')<<"_"<<right<<setw(34)<<setfill('_')<<"_"<<endl<<endl;
+							cout<<right<<setw(67)<<setfill(' ')<<"Please enter your choice: ";
 							cin>>choice2;
 	    					switch(choice2){
 								case 1: {
 										cout<<"1.Trip Planner"<<endl;
-	              						cout<<"2.Hotel Planner"<<endl;
-	             	 					cout<<"Select your choice: ";
+	        	  						cout<<"2.Hotel Planner"<<endl;
+	             	 					cout<<"So this time what do you want to plan: ";
 	              						cin>>choice3;
-	    								switch(choice3){       
+	    								switch(choice3){  
         									case 1:	{
        	          									//system("color 0A");
                   									F.open("NewTravel.txt",ios::out|ios::app|ios::binary);
@@ -893,7 +924,7 @@ int main()
 								case 2: {
                   						cout<<"1.Trip History"<<endl;
 	              						cout<<"2.Hotel History"<<endl;
-	              						cout<<"Please enter which history you want to see: ";
+	              						cout<<"Which travelling history do your want to see: ";
 	              						cin>>choice4;
 	              						switch(choice4){
         									case 1: { 
@@ -922,7 +953,7 @@ int main()
 								case 3: {    
 	              						cout<<"1.Trip Search"<<endl;
 	              						cout<<"2.Hotel Search"<<endl;
-	              						cout<<"Please enter which option you want to search: ";
+	              						cout<<"For which one do you want to search: ";
 	              						cin>>choice5;
 	              						switch(choice5){
 	              							case 1: { 
@@ -957,9 +988,9 @@ int main()
 								break;
 
 								case 4: {     
-										cout<<"1.Delete Trip"<<endl;
+										cout<<"1.Cancel Trip"<<endl;
 	              						cout<<"2.Cancel Hotel"<<endl;
-	        		      				cout<<"Select your choice: ";
+	        		      				cout<<"Cancellation fo: ";
 	              						cin>>choice6;
 	              						switch(choice6){
         									case 1: {   
@@ -1028,7 +1059,7 @@ int main()
       							case 5: {  
 									  	cout<<"1.Modify Trip"<<endl;
 	             						cout<<"2.Modify Hotel History"<<endl;
-	             						cout<<"Select your choice: ";
+	             						cout<<"In which one do you want to make changes: ";
 	             						cin>>choice7;
 	                					switch(choice7){		 
          									case 1:{   
@@ -1100,16 +1131,18 @@ int main()
 			  					}
 								break;
 							}
-							cout<<"Do you want to Select any other Option?";
+							cout<<"Do you want to visit main menu again? ";
 							cin>>answer3;				 						  
 	    					}while(answer3=='y');
    						}
  				   	else
-   				    	cout<<"Incorrect password"<<endl;
+   				    	cout<<"Incorrect password!!"<<endl;
+					cout.flush();
    				    sleep(3);
 					}
    				else
 					cout<<"Incorrect username!!"<<endl;  
+				cout.flush();
 				sleep(3);
 				}
 		}
@@ -1117,38 +1150,52 @@ int main()
 		}	
 	   	f.close();
 	   	system("clear");
-	    cout<<"Do you want return to home page????\nType 'y' for yes ";
+	    cout<<"Do you want return to home page? ";
         cin>>answer4;
 		}while(answer4=='y');
 	   	system("clear");
 	   	//system("color 60");
+		cout.flush();
 	   	sleep(1);
 	   	cout<<"V";
+		cout.flush();
 	   	sleep(1);
  	  	cout<<"I";		
+		cout.flush();
   	 	sleep(1);
 	   	cout<<"S";		
+		cout.flush();
 		sleep(1);
 	 	cout<<"I";		
+		cout.flush();
 		sleep(1);
 	   	cout<<"T";		
+		cout.flush();
 		sleep(1);
-	   	cout<<" ";		
+	   	cout<<" ";
+		cout.flush();
 		sleep(1);
-	   	cout<<"U";		
+	   	cout<<"U";
+		cout.flush();
 		sleep(1);
-	   	cout<<"S";		
+	   	cout<<"S";
+		cout.flush();
 		sleep(1);
-	   	cout<<" ";		
+	   	cout<<" ";
+		cout.flush();
 		sleep(1);
 	   	cout<<"A";		
+		cout.flush();
 		sleep(1);
-	   	cout<<"G";		
+	   	cout<<"G";
+		cout.flush();
 		sleep(1);
-	   	cout<<"A";		
+	   	cout<<"A";
+		cout.flush();
 		sleep(1);
-	   	cout<<"I";		
+	   	cout<<"I";
+		cout.flush();
 		sleep(1);
-	   	cout<<"N"<<endl<<endl;	
+	   	cout<<"N"<<endl;
 		return 0;
 }
