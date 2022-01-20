@@ -95,7 +95,7 @@ class Travel{
  		cout<<"Enter the Passenger's name: ";
  		cin>>passenger_name;
  		cout<<"Choose vehicle type: ";
-	    cout<<"\nCAR-1\nBUS-2\nTRAIN-3\nPLANE-4\n";
+	    cout<<"\nCAR - 1\nBUS - 2\nTRAIN - 3\nPLANE - 4\n";
 	    cout<<"Enter the number provided with the vehicle type: ";
 	    cin>>vehicle;
 	    cout<<"Enter your Destination: ";
@@ -162,15 +162,15 @@ class Passenger :public Travel{
 };
 class Passenger_info: public Passenger{
 	int passenger_num;
- 	char Mobile_num[10];
+ 	char Mobile_num[11];
  	char Gender[6];
  	int age;
  	public:
  	Passenger_info(){
  		passenger_num=101;
  		strcpy(Mobile_num,"9876543201");
- 		strcpy(Gender,"male");
- 		age=18;	
+ 		strcpy(Gender,"Male");
+ 		age=18;
  	}
  	void Details_input(){
  		cout<<"Enter your passenger number: ";
@@ -788,12 +788,10 @@ class Hotel{
 	}
 };
  
-int main()
-{       
+int main(){       
     	int choice1, choice2, choice3, choice4, choice5, choice6, choice7;
         char answer3,answer4;
-        do{
-		//system("color 0D");
+        do{`
 		system("clear");
 		cout<<right<<setw(40)<<setfill(' ')<<"_"<<right<<setw(39)<<setfill('_')<<"_"<<"_"<<endl;
     	cout<<right<<setw(65)<<setfill(' ')<<"TravelGuru"<<endl;
@@ -809,7 +807,7 @@ int main()
 		Passenger P;
 		Passenger_info PI;
 		fstream f;
-		cout<<right<<setw(65)<<setfill(' ')<<"select your choice: ";
+		cout<<right<<setw(65)<<setfill(' ')<<"Please enter your choice: ";
 		cin>>choice1;
 		cout<<endl;
     	switch(choice1){      
@@ -832,7 +830,6 @@ int main()
    						cin>>password;
    						if(strcmp(P.password_conf(),password)==0){
    						    system("clear");
-   						    //system("color C0");
    						    cout<<"\t\t\t\t\t\tLoading Page";
    						    cout<<".";
 							cout.flush();
@@ -854,7 +851,6 @@ int main()
     					    Hotel H;
 							fstream F;
  						    system("clear");
-							//system("color 8B");
 							cout<<right<<setw(49)<<setfill(' ')<<"-"<<right<<setw(14)<<setfill('-')<<"-"<<endl;
     						cout<<right<<setw(64)<<setfill(' ')<<"|   MAIN MENU   |"<<endl;
     						cout<<right<<setw(49)<<setfill(' ')<<"-"<<right<<setw(14)<<setfill('-')<<"-"<<endl<<endl;
@@ -889,7 +885,6 @@ int main()
 	              						cin>>choice3;
 	    								switch(choice3){  
         									case 1:	{
-       	          									//system("color 0A");
                   									F.open("NewTravel.txt",ios::out|ios::app|ios::binary);
 				  									char answer1='y';
 				  									while(answer1=='y'){
@@ -928,7 +923,6 @@ int main()
 	              						cin>>choice4;
 	              						switch(choice4){
         									case 1: { 
-													//system("color 0E");
 	                								F.open("NewTravel.txt",ios::in);
 													while(F.read((char*)&T,sizeof(T))){
 					 									T.Display_trip();
@@ -938,7 +932,6 @@ int main()
 											break;
 
 											case 2: {
-			               							//system("color 0E");
 	                								F.open("Hotel.txt",ios::in);
 													while(F.read((char*)&H,sizeof(H))){
 					 									H.display_hotel();
@@ -957,7 +950,6 @@ int main()
 	              						cin>>choice5;
 	              						switch(choice5){
 	              							case 1: { 
-												  	//system("color 79");
 	                      							int passenger_code_trip;
 					      							cout<<"Enter the Passenger code for the trip to be searched for: ";
 						  							cin>>passenger_code_trip;
@@ -971,7 +963,6 @@ int main()
 											break;
 
 	              							case 2: { 
-												  	//system("color 79");
 	                      							int passenger_code_hotel;
 					      							cout<<"Enter the Passenger code for the Hotel to be searched for: ";
 						  							cin>>passenger_code_hotel;
@@ -994,7 +985,6 @@ int main()
 	              						cin>>choice6;
 	              						switch(choice6){
         									case 1: {   
-													//system("color F5");
 	                								fstream ftemp,x,y;
 													int flag=0,passenger_code_trip;
 													ftemp.open("Travelinfo.txt",ios::out);
@@ -1024,7 +1014,6 @@ int main()
 											break;
 
           									case 2: {
-         											//system("color F5");
 	                								fstream ftempp,e,r;
 													int flag=0,passenger_code_hotel;
 													ftempp.open("Hotelinfo.txt",ios::out);
@@ -1063,7 +1052,6 @@ int main()
 	             						cin>>choice7;
 	                					switch(choice7){		 
          									case 1:{   
-												 	//system("color E4"); 
 		            								fstream ftemp,x,y;
 													int flag=0,passenger_code_trip;
 													ftemp.open("Travelinfo.txt",ios::out);
@@ -1096,7 +1084,6 @@ int main()
 											break;
 
           									case 2: {
-                    								//system("color E4"); 
 		            								fstream ftempp,e,r;
 													int flag=0,passenger_code_hotel;
 													ftempp.open("Hotelinfo.txt",ios::out);
@@ -1154,7 +1141,6 @@ int main()
         cin>>answer4;
 		}while(answer4=='y');
 	   	system("clear");
-	   	//system("color 60");
 		cout.flush();
 	   	sleep(1);
 	   	cout<<"V";
