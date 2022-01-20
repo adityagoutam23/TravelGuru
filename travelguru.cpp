@@ -791,7 +791,7 @@ class Hotel{
 int main(){       
     	int choice1, choice2, choice3, choice4, choice5, choice6, choice7;
         char answer3,answer4;
-        do{`
+        do{
 		system("clear");
 		cout<<right<<setw(40)<<setfill(' ')<<"_"<<right<<setw(39)<<setfill('_')<<"_"<<"_"<<endl;
     	cout<<right<<setw(65)<<setfill(' ')<<"TravelGuru"<<endl;
