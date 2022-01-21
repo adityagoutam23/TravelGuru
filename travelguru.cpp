@@ -92,8 +92,8 @@ class Travel{
  	void Input_trip(){
  		cout<<"Enter the Passenger Code: ";
  		cin>>passenger_code;
- 		cout<<"Enter the Passenger's name: ";
- 		cin>>passenger_name;
+ 		cout<<"Enter the Passenger's first name: ";
+		cin>>passenger_name;
  		cout<<"Choose vehicle type: ";
 	    cout<<"\nCAR - 1\nBUS - 2\nTRAIN - 3\nPLANE - 4\n";
 	    cout<<"Enter the number provided with the vehicle type: ";
@@ -106,7 +106,7 @@ class Travel{
  	}
 	void Display_trip(){
 		cout<<"Your Passenger code: "<<passenger_code<<endl;
-		cout<<"Passenger name: "<<passenger_name<<endl;
+		cout<<"Passenger first name: "<<passenger_name<<endl;
 		if (vehicle==1)
 		 	cout<<"Vehicle type: Car"<<endl;
 		else if (vehicle==2)
@@ -117,7 +117,7 @@ class Travel{
 		 	cout<<"Vehicle type: Plane"<<endl;
 	 	cout<<"Your Destination: "<<destination<<endl;
 		cout<<"Price: "<<price<<endl;  
-		cout<<"Total Amount to be paid  after discount: "<<Total_price<<endl;		 
+		cout<<"Total Amount to be paid  after discount: "<<Total_price<<endl<<endl;		 
 	}   
 };
 class Passenger :public Travel{
@@ -185,8 +185,9 @@ class Passenger_info: public Passenger{
 };
 class Hotel{
 	int passenger_code_hotel,family_members,total_price,continent,currency_price;
+	int flaga=0;
 	long int hotel_price, hotel_final_price;
-	char passenger_name_hotel[20], country, city[20];
+	char country, city[20], passenger_name_hotel[20];
 	char answer5;
 	public:
     int passenger_code_hotel_search(){
@@ -219,7 +220,7 @@ class Hotel{
  	    	hotel_final_price=25000*1;}
  	    	else if(family_members>=5)
  	    	{hotel_price=50000;
- 	    	hotel_final_price=50000*1;} 
+ 	    	hotel_final_price=50000*1;}
 	   	}
 	   	else if(country=='D'){ 	
  	    	if((family_members>=1)&&(family_members<=4))
@@ -516,20 +517,20 @@ class Hotel{
     void do_discount(float,float)
     {
     	if(hotel_price<=25000){
-			total_price=hotel_price-0.10*hotel_price;
-    		total_price=hotel_final_price-0.10*hotel_final_price;
+			total_price=(hotel_price)-(hotel_price*0.10);
+    		currency_price=(hotel_final_price)-(hotel_final_price*0.10);
 		}
     	else if(hotel_price>25000){
-			total_price=hotel_price-0.15*hotel_price;
-    		total_price=hotel_final_price-0.15*hotel_final_price;
+			total_price=(hotel_price)-(hotel_price*0.15);
+    		currency_price=(hotel_final_price)-(hotel_final_price*0.15);
 		}
     }
 	void input_hotel()
 	{
-		cout<<"Enter the Passenger Code=";
+		cout<<"Enter the Passenger Code: ";
  		cin>>passenger_code_hotel;
- 		cout<<"Enter the Passenger's name=";
- 		cin>>passenger_name_hotel;
+ 		cout<<"Enter the Passenger's first name: ";
+		cin>>passenger_name_hotel;
  		cout<<"Have you seen the trip planner??"<<endl<<"select y for yes=";
  		cin>>answer5;
  		if(answer5=='y')
@@ -608,8 +609,10 @@ class Hotel{
  		   	}
  		   	else if(continent==7)
  		   	{
-   		       	cout<<"We dont provide Services in Antartica"<<endl;	
+   		       	cout<<"We dont provide Services in Antartica"<<endl;
+				flaga = 1;
    		   	}
+			if(flaga==0){
  		   	cout<<"Enter the Alphabet either in Capital or Small Letter corresponding to the Country which you want = ";  
            	cin>>country;
    		   	cout<<"Enter the City you want to stay in = ";
@@ -617,6 +620,7 @@ class Hotel{
  		   	cout<<"Please enter how many family members do you have ";
  		   	cin>>family_members;
 	       	do_calculation(country,family_members);
+			}
  		}
  		else
  			cout<<"First please see the Trip Planner";
@@ -624,8 +628,8 @@ class Hotel{
 	void display_hotel()
 	{
 		cout<<"Your Passenger code is="<<passenger_code_hotel<<endl;
-		cout<<"Passanger Name is ="<<passenger_name_hotel<<endl;
-		cout<<"your Hotel City is ="<<city<<endl;
+		cout<<"Passanger's First name is ="<<passenger_name_hotel<<endl;
+		cout<<"Your Hotel City is ="<<city<<endl;
 		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
 		cout<<"Price for the Room is="<<hotel_price<<"Rupees"<<endl<<"OR"<<endl;
 		if(country=='A')
@@ -785,12 +789,13 @@ class Hotel{
 		else 
 		cout<<"ERROR..........................."<<endl;
 		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
+		cout<<right<<setw(120)<<setfill('_')<<"_"<<endl;
 	}
 };
  
 int main(){       
     	int choice1, choice2, choice3, choice4, choice5, choice6, choice7;
-        char answer3,answer4;
+		string answer3, answer4;
         do{
 		system("clear");
 		cout<<right<<setw(40)<<setfill(' ')<<"_"<<right<<setw(39)<<setfill('_')<<"_"<<"_"<<endl;
@@ -810,7 +815,7 @@ int main(){
 		cout<<right<<setw(65)<<setfill(' ')<<"Please enter your choice: ";
 		cin>>choice1;
 		cout<<endl;
-    	switch(choice1){      
+    	switch(choice1){     
 		case 1: {           	
 				f.open("Travel.txt",ios::out);
 				PI.Details_input(); 
@@ -879,15 +884,16 @@ int main(){
 							cin>>choice2;
 	    					switch(choice2){
 								case 1: {
-										cout<<"1.Trip Planner"<<endl;
-	        	  						cout<<"2.Hotel Planner"<<endl;
+										cout<<endl<<"1.Trip Planner"<<endl;
+	        	  						cout<<"2.Hotel Planner"<<endl<<endl;
 	             	 					cout<<"So this time what do you want to plan: ";
 	              						cin>>choice3;
+										cout<<endl;
 	    								switch(choice3){  
         									case 1:	{
                   									F.open("NewTravel.txt",ios::out|ios::app|ios::binary);
-				  									char answer1='y';
-				  									while(answer1=='y'){
+				  									string answer1="yes";
+				  									while(answer1=="y"||answer1=="yes"||answer1=="yup"||answer1=="YES"||answer1=="Y"||answer1=="1"){
 														T.Input_trip();
 														F.write((char*)&T,sizeof(T));
 														cout<<"Do you want to plan a new trip again...?";
@@ -900,11 +906,11 @@ int main(){
 
 											case 2:	{  
 			        								F.open("Hotel.txt",ios::out|ios::app|ios::binary);
-				  									char answer2='y';
-				  									while(answer2=='y'){
+				  									string answer2="yes";
+				  									while(answer2=="y"||answer2=="yes"||answer2=="yup"||answer2=="YES"||answer2=="Y"||answer2=="1"){
 														H.input_hotel();
 														F.write((char*)&H,sizeof(H));
-														cout<<"Do you want to add a new Place for Hotel again...?";
+														cout<<"Do you want to plan for a new hotel place again...?";
 														cin>>answer2;
 														system("clear");
 				  									}
@@ -912,77 +918,106 @@ int main(){
 		        							}
 											break;
 
+											default: cout<<"\nYou have selected wrong option :( "<<endl;
+
 										}
 								}
 								break;
 
 								case 2: {
-                  						cout<<"1.Trip History"<<endl;
-	              						cout<<"2.Hotel History"<<endl;
-	              						cout<<"Which travelling history do your want to see: ";
+                  						cout<<endl<<"1.Trip details/ history"<<endl;
+	              						cout<<"2.Hotel details/ history"<<endl<<endl;
+	              						cout<<"Which travelling details/ history do your want to see: ";
 	              						cin>>choice4;
+										cout<<endl;
 	              						switch(choice4){
         									case 1: { 
+													int flag=0;
 	                								F.open("NewTravel.txt",ios::in);
 													while(F.read((char*)&T,sizeof(T))){
+														flag=1;
 					 									T.Display_trip();
 				    								}
+													if(flag==0){
+														cout<<"No data can be found:("<<endl;
+													}
 				     								F.close();
 	              							}
 											break;
 
 											case 2: {
+													int flag=0;
 	                								F.open("Hotel.txt",ios::in);
 													while(F.read((char*)&H,sizeof(H))){
+														flag=1;
 					 									H.display_hotel();
 				    								}
+													if(flag==0){
+														cout<<"No data can be found:("<<endl;
+													}
 				     								F.close();  
   	            							}
 											break;
+
+											default: cout<<"\nYou have selected wrong option :( "<<endl;
 	              						}
 		    					}
 								break;
 
 								case 3: {    
-	              						cout<<"1.Trip Search"<<endl;
-	              						cout<<"2.Hotel Search"<<endl;
+	              						cout<<endl<<"1.Trip Search"<<endl;
+	              						cout<<"2.Hotel Search"<<endl<<endl;
 	              						cout<<"For which one do you want to search: ";
 	              						cin>>choice5;
+										cout<<endl;
 	              						switch(choice5){
 	              							case 1: { 
+												  	int flag=0;
 	                      							int passenger_code_trip;
 					      							cout<<"Enter the Passenger code for the trip to be searched for: ";
 						  							cin>>passenger_code_trip;
 						  							F.open("NewTravel.txt",ios::in);
 						  							while(F.read((char*)&T,sizeof(T))){
+														flag=1;
 					         							if(T.passenger_code_trip_search()==passenger_code_trip)
 					         								T.Display_trip();
 					       							}
+													if(flag==0){
+														cout<<"No data can be found:("<<endl;
+													}
 					 								F.close();
 	                      					}
 											break;
 
-	              							case 2: { 
+	              							case 2: {
+												  	int flag=0; 
 	                      							int passenger_code_hotel;
 					      							cout<<"Enter the Passenger code for the Hotel to be searched for: ";
 						  							cin>>passenger_code_hotel;
 						  							F.open("Hotel.txt",ios::in);
 						  							while(F.read((char*)&H,sizeof(H))){
+														flag=1;
 					         							if(H.passenger_code_hotel_search()==passenger_code_hotel)
 					         								H.display_hotel();
 					       							}
+													if(flag==0){
+														cout<<"No data can be found:("<<endl;
+													}
 					 								F.close();
 	                      					}
-											break;              
+											break;   
+
+											default: cout<<"\nYou have selected wrong option :( "<<endl;           
 	              						}
             					}
 								break;
 
 								case 4: {     
-										cout<<"1.Cancel Trip"<<endl;
-	              						cout<<"2.Cancel Hotel"<<endl;
-	        		      				cout<<"Cancellation fo: ";
+										cout<<endl<<"1.Cancel Trip"<<endl;
+	              						cout<<"2.Cancel Hotel"<<endl<<endl;
+	        		      				cout<<"Cancellation for: ";
 	              						cin>>choice6;
+										cout<<endl;
 	              						switch(choice6){
         									case 1: {   
 	                								fstream ftemp,x,y;
@@ -1040,16 +1075,19 @@ int main(){
 													r.close();
 													F.close();
          		 							}
-											break;      
+											break;   
+
+											default: cout<<"\nYou have selected wrong option :( "<<endl;   
 	           							}		
            						}
 								break;
 
       							case 5: {  
-									  	cout<<"1.Modify Trip"<<endl;
-	             						cout<<"2.Modify Hotel History"<<endl;
+									  	cout<<endl<<"1.Modify Trip"<<endl;
+	             						cout<<"2.Modify Hotel History"<<endl<<endl;
 	             						cout<<"In which one do you want to make changes: ";
 	             						cin>>choice7;
+										cout<<endl;
 	                					switch(choice7){		 
          									case 1:{   
 		            								fstream ftemp,x,y;
@@ -1113,14 +1151,18 @@ int main(){
 													r.close();
                     								F.close();          	
                   							}
-											break;       
+											break;      
+
+											default: cout<<"\nYou have selected wrong option :( "<<endl; 
 		         						}
 			  					}
 								break;
+
+								default: cout<<"\nYou have selected wrong option :( "<<endl;
 							}
 							cout<<"Do you want to visit main menu again? ";
-							cin>>answer3;				 						  
-	    					}while(answer3=='y');
+							cin>>answer3;			 						  
+	    					}while(answer3=="y"||answer3=="yes"||answer3=="yup"||answer3=="YES"||answer3=="Y");
    						}
  				   	else
    				    	cout<<"Incorrect password!!"<<endl;
@@ -1133,13 +1175,15 @@ int main(){
 				sleep(3);
 				}
 		}
-		break;	  		  			  	
+		break;
+
+		default: cout<<"\nYou have selected wrong option :( "<<endl;
 		}	
 	   	f.close();
 	   	system("clear");
 	    cout<<"Do you want return to home page? ";
         cin>>answer4;
-		}while(answer4=='y');
+		}while(answer4=="y"||answer4=="yes"||answer4=="yup"||answer4=="YES"||answer4=="Y");
 	   	system("clear");
 		cout.flush();
 	   	sleep(1);
